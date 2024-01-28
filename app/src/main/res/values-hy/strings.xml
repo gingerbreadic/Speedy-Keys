@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Typing Challenge</string>
+    <string name="confirm_password">Հաստատեք գաղտնաբառը</string>
+    <string name="password">Գաղտնաբառ</string>
+    <string name="username">Մականուն</string>
+    <string name="sign_in">Մուտք գործել</string>
+    <string name="e_mail_address">Էլեկտրոնային հասցե</string>
+    <string name="registration_page">Գրանցման էջ</string>
+    <string name="already_have_an_account">Արդեն ունեք հաշիվ?</string>
+    <string name="login_page">Մուտքի էջ</string>
+</resources>

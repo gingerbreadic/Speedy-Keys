@@ -1,0 +1,130 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_game_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--global-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/global_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/wroten_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/health_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health : 10"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.17"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/score_textView"
+            android:layout_width="160dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="20dp"
+            android:text="Score : 0"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/health_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--layout english-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_english"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+            <include
+                android:id="@+id/include_line_en"
+                layout="@layout/line" />
+
+            <include
+                android:id="@+id/include_en"
+                layout="@layout/keyboard_custom"
+                app:layout_constraintTop_toBottomOf="@id/include_line_en"
+                tools:layout_editor_absoluteX="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--layout armenian-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_armenian"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+            <include
+                android:id="@+id/include_line_hy"
+                layout="@layout/line" />
+
+
+            <include
+                android:id="@+id/include_hy"
+                layout="@layout/keyboard_hy"
+                app:layout_constraintTop_toBottomOf="@id/include_line_hy"
+                tools:layout_editor_absoluteX="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/game_over_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:context=".MainGameOver">
+
+        <TextView
+            android:id="@+id/score_gameOver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your score is : "
+            android:textColor="@color/red"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "79925061449",
+    "project_id": "typing-challenge-ac088",
+    "storage_bucket": "typing-challenge-ac088.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79925061449:android:0659f92c198bb46cee9c98",
+        "android_client_info": {
+          "package_name": "com.example.typingchallenge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGl06NdX-JJ9oDXUXMgrZLqVJzR1utJV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
