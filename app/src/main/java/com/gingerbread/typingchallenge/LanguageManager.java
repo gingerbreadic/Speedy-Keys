@@ -20,6 +20,6 @@ public class LanguageManager {
     }
 
     public String getSelectedLanguage() {
-        return sharedPreferences.getString(KEY_SELECTED_LANGUAGE, null);
+        return sharedPreferences.getString(KEY_SELECTED_LANGUAGE, "en");
     }
 }

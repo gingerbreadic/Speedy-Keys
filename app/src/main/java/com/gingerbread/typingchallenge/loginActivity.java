@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class loginActivity extends AppCompatActivity {
-    TextView login_usernameEditText, login_passwordEditText, signUpText, guestMode;
+    TextView login_username, login_password, signUpText, guestMode;
     Button login_button;
     ProgressBar progressBar;
     private UserLoginManager userLoginManager;
@@ -29,8 +29,8 @@ public class loginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         userLoginManager = new UserLoginManager(this);
 
-        login_usernameEditText = findViewById(R.id.login_username);
-        login_passwordEditText = findViewById(R.id.login_password);
+        login_username = findViewById(R.id.login_username);
+        login_password = findViewById(R.id.login_password);
         login_button = findViewById(R.id.login_button);
         signUpText = findViewById(R.id.signUpText);
 
@@ -60,8 +60,8 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username, password;
 
-                username = String.valueOf(login_usernameEditText.getText());
-                password = String.valueOf(login_passwordEditText.getText());
+                username = String.valueOf(login_username.getText());
+                password = String.valueOf(login_password.getText());
 
                 if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(loginActivity.this, "Make sure to fill all fields!", Toast.LENGTH_SHORT).show();

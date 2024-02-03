@@ -7,10 +7,11 @@
     android:gravity="center"
     tools:context=".SettingsFragment">
 
-    <Spinner
-        android:id="@+id/languageSpinner"
+    <RadioGroup
+        android:id="@+id/languageRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp" />
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"/>
 
 </LinearLayout>

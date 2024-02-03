@@ -21,7 +21,6 @@ import kotlin.jvm.functions.Function1;
 public class MainScreen extends AppCompatActivity {
 
     MeowBottomNavigation bottomNavigation;
-
     RelativeLayout main_layout;
     Fragment currentFragment;
 
