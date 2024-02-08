@@ -16,6 +16,7 @@ public class HomeFragment extends Fragment{
     private UserLoginManager userLoginManager;
     String userId;
     String username;
+    String highscore;
 
     @Nullable
     @Override
@@ -26,8 +27,9 @@ public class HomeFragment extends Fragment{
 
         userId = userLoginManager.getUserId();
         username = userLoginManager.getUsername();
+        highscore = userLoginManager.getUsersHighScore();
 
-        play_game_button.setText(String.valueOf(username));
+        play_game_button.setText(String.valueOf(highscore));
 
         play_game_button.setOnClickListener(new View.OnClickListener() {
             @Override

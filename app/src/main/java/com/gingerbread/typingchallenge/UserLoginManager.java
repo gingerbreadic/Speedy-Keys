@@ -9,6 +9,7 @@ public class UserLoginManager {
     private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
     private static final String KEY_USER_ID = "userId";
     private static final String KEY_USERNAME = "username";
+    private static final String KEY_USERS_HIGHSCORE = "highScore";
 
     private final SharedPreferences sharedPreferences;
 
@@ -35,6 +36,17 @@ public class UserLoginManager {
     public String getUsername() {
         return sharedPreferences.getString(KEY_USERNAME, "");
     }
+
+    public String getUsersHighScore() {
+        return sharedPreferences.getString(KEY_USERS_HIGHSCORE, "");
+    }
+
+    public void saveHighscore(String highscore) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_USERS_HIGHSCORE, highscore);
+        editor.apply();
+    }
+
     public void clearLoginState() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();

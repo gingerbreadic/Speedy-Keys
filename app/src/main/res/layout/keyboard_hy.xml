@@ -557,7 +557,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="SPACE"
+                android:text="Բացատ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />

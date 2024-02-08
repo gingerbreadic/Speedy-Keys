@@ -27,14 +27,12 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/** @noinspection deprecation*/
 public class registerActivity extends AppCompatActivity {
 
-    private TextView usernameEditText, registration_passEditText, registration_confirmpassEditText, registration_emailEditText, registrationText, verification_registration;
-    private Button verify_email_button;
+    private TextView usernameEditText, registration_passEditText, registration_confirmpassEditText, registration_emailEditText, verification_registration;
     private String verification_code;
     private ProgressBar progressBar;
-    private Random random = new Random();
-    private int MAXRANGE = 100000;
     private boolean emailSent = false;
 
     @SuppressLint("MissingInflatedId")
@@ -52,81 +50,69 @@ public class registerActivity extends AppCompatActivity {
 
         verification_registration.setVisibility(View.INVISIBLE);
 
-        verify_email_button = findViewById(R.id.verify_email_button);
+        Button verify_email_button = findViewById(R.id.verify_email_button);
         progressBar = findViewById(R.id.progress);
 
-        loginText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(registerActivity.this, loginActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        loginText.setOnClickListener(v -> {
+            Intent intent = new Intent(registerActivity.this, loginActivity.class);
+            startActivity(intent);
+            finish();
         });
 
-        verify_email_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username, password, confirm_password, email;
+        verify_email_button.setOnClickListener(v -> {
+            String username, password, confirm_password, email;
 
-                registrationText = findViewById(R.id.registrationText);
-
-                username = String.valueOf(usernameEditText.getText());
-                password = String.valueOf(registration_passEditText.getText());
-                confirm_password = String.valueOf(registration_confirmpassEditText.getText());
-                email = String.valueOf(registration_emailEditText.getText());
-                if (!username.isEmpty() && !password.isEmpty() && !confirm_password.isEmpty() && !email.isEmpty()) {
-                    if (!emailSent) {
-                        generateVerificationCode();
-                        buttonSendEmail(v, email, "E-mail confirmation", "Code for registration in Typing Challenge \n <h2>" + verification_code + "<h2/>"); // Call the new method to send the email
-                        emailSent = true;
-                    }
-                    verification_registration.setVisibility(View.VISIBLE);
-                    if (verification_registration.getText().toString().equals(verification_code)) {
-                        progressBar.setVisibility(View.VISIBLE);
-                        Handler handler = new Handler();
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                String[] field = new String[3];
-                                field[0] = "username";
-                                field[1] = "email";
-                                field[2] = "password";
-                                String[] data = new String[3];
-                                data[0] = username;
-                                data[1] = email;
-                                if (password.equals(confirm_password)) {
-                                    data[2] = password;
+            username = String.valueOf(usernameEditText.getText());
+            password = String.valueOf(registration_passEditText.getText());
+            confirm_password = String.valueOf(registration_confirmpassEditText.getText());
+            email = String.valueOf(registration_emailEditText.getText());
+            if (!username.isEmpty() && !password.isEmpty() && !confirm_password.isEmpty() && !email.isEmpty()) {
+                if (!emailSent) {
+                    generateVerificationCode();
+                    buttonSendEmail(email, "E-mail confirmation", "Code for registration in Typing Challenge \n <h2>" + verification_code + "<h2/>"); // Call the new method to send the email
+                    emailSent = true;
+                }
+                verification_registration.setVisibility(View.VISIBLE);
+                if (verification_registration.getText().toString().equals(verification_code)) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    Handler handler = new Handler();
+                    handler.post(() -> {
+                        String[] field = new String[3];
+                        field[0] = "username";
+                        field[1] = "email";
+                        field[2] = "password";
+                        String[] data = new String[3];
+                        data[0] = username;
+                        data[1] = email;
+                        if (password.equals(confirm_password)) {
+                            data[2] = password;
+                        } else {
+                            Toast.makeText(registerActivity.this, "Your password does not match confirm password field!", Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.INVISIBLE);
+                            return;
+                        }
+                        PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/signup.php", "POST", field, data);
+                        buttonSendEmail(email, "Registration success", "Welcome to Typing Challenge, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                progressBar.setVisibility(View.GONE);
+                                String result = putData.getResult();
+                                if (result.equals("Sign Up Success")) {
+                                    Intent intent = new Intent(registerActivity.this, loginActivity.class);
+                                    startActivity(intent);
+                                    Toast.makeText(registerActivity.this, "Sign Up Success!", Toast.LENGTH_SHORT).show();
+                                    finish();
                                 } else {
-                                    Toast.makeText(registerActivity.this, "Your password does not match confirm password field!", Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.INVISIBLE);
-                                    return;
-                                }
-                                PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/signup.php", "POST", field, data);
-                                buttonSendEmail(v, email, "Registration success", "Welcome to Typing Challenge, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
-                                if (putData.startPut()) {
-                                    if (putData.onComplete()) {
-                                        progressBar.setVisibility(View.GONE);
-                                        String result = putData.getResult();
-                                        if (result.equals("Sign Up Success")) {
-                                            Intent intent = new Intent(registerActivity.this, loginActivity.class);
-                                            startActivity(intent);
-                                            Toast.makeText(registerActivity.this, result, Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        } else {
-                                            Toast.makeText(registerActivity.this, result, Toast.LENGTH_SHORT).show();
-                                            registrationText.setText(String.valueOf(random.nextInt(MAXRANGE)));
-                                        }
-                                    }
+                                    Toast.makeText(registerActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        });
-                    } else {
-                        Toast.makeText(registerActivity.this, "This verification code is not working", Toast.LENGTH_LONG).show();
-                    }
+                        }
+                    });
                 } else {
-                    Toast.makeText(registerActivity.this, "Make sure to fill all fields!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registerActivity.this, "This verification code is not working", Toast.LENGTH_LONG).show();
                 }
+            } else {
+                Toast.makeText(registerActivity.this, "Make sure to fill all fields!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -140,7 +126,7 @@ public class registerActivity extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    public void buttonSendEmail(final View view, final String email, final String subject, final String content) {
+    public void buttonSendEmail(final String email, final String subject, final String content) {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {

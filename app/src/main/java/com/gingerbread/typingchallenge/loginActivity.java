@@ -1,6 +1,5 @@
 package com.gingerbread.typingchallenge;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,13 +37,10 @@ public class loginActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progress);
 
-        signUpText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(loginActivity.this, registerActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        signUpText.setOnClickListener(v -> {
+            Intent intent = new Intent(loginActivity.this, registerActivity.class);
+            startActivity(intent);
+            finish();
         });
 
         if (userLoginManager.isLoggedIn()) {
@@ -55,80 +51,67 @@ public class loginActivity extends AppCompatActivity {
             finish();
         }
 
-        login_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username, password;
+        login_button.setOnClickListener(v -> {
+            String username, password;
 
-                username = String.valueOf(login_username.getText());
-                password = String.valueOf(login_password.getText());
+            username = String.valueOf(login_username.getText());
+            password = String.valueOf(login_password.getText());
 
-                if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(loginActivity.this, "Make sure to fill all fields!", Toast.LENGTH_SHORT).show();
-                } else {
-                    progressBar.setVisibility(View.VISIBLE);
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(loginActivity.this, "Make sure to fill all fields!", Toast.LENGTH_SHORT).show();
+            } else {
+                progressBar.setVisibility(View.VISIBLE);
 
-                    Handler handler = new Handler();
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            String[] field = {"username", "password"};
-                            String[] data = {username, password};
+                Handler handler = new Handler();
+                handler.post(() -> {
+                    String[] field = {"username", "password"};
+                    String[] data = {username, password};
 
-                            PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/login.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    progressBar.setVisibility(View.GONE);
-                                    String result = putData.getResult();
-                                    String[] parts = result.split(":");
+                    PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/login.php", "POST", field, data);
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+                            progressBar.setVisibility(View.GONE);
+                            String result = putData.getResult();
+                            String[] parts = result.split(":");
 
-                                    if (parts.length >= 2) {
-                                        String loginSuccess = parts[0];
-                                        userId = parts[1];
+                            if (parts.length >= 2) {
+                                String loginSuccess = parts[0];
+                                userId = parts[1];
 
-                                        if (loginSuccess.equals("Login Success")) {
-                                            userLoginManager.setLoggedIn(true, userId, username);
-                                            Intent intent = new Intent(loginActivity.this, MainScreen.class);
-                                            startActivity(intent);
-                                            Toast.makeText(loginActivity.this, result, Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        } else {
-                                            Toast.makeText(loginActivity.this, result, Toast.LENGTH_SHORT).show();
-                                        }
-                                    } else {
-                                        Toast.makeText(loginActivity.this, "Invalid server response format", Toast.LENGTH_SHORT).show();
-                                    }
+                                if (loginSuccess.equals("Login Success")) {
+                                    userLoginManager.setLoggedIn(true, userId, username);
+                                    Intent intent = new Intent(loginActivity.this, MainScreen.class);
+                                    startActivity(intent);
+                                    Toast.makeText(loginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
+                                    finish();
                                 } else {
-                                    Toast.makeText(loginActivity.this, "Connection Error", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(loginActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                                 }
+                            } else {
+                                Toast.makeText(loginActivity.this, "Invalid server response format", Toast.LENGTH_SHORT).show();
                             }
+                        } else {
+                            Toast.makeText(loginActivity.this, "Connection Error", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
             }
         });
 
-        guestMode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(loginActivity.this, MainScreen.class);
-                startActivity(intent);
-                finish();
-            }
+        guestMode.setOnClickListener(v -> {
+            Intent intent = new Intent(loginActivity.this, MainScreen.class);
+            startActivity(intent);
+            finish();
         });
     }
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         new AlertDialog.Builder(this)
                 .setTitle("Exit")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
+                .setPositiveButton("Yes", (dialog, which) -> finish())
                 .setNegativeButton("No", null)
                 .show();
     }

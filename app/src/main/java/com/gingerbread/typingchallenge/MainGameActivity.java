@@ -1,5 +1,6 @@
 package com.gingerbread.typingchallenge;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -26,7 +27,7 @@ public class MainGameActivity extends AppCompatActivity {
     int screenHeight;
     int speed;
     int score = 0;
-    int health = 1;
+    int health = 10;
     String[] words_level_1;
     String[] words_level_2;
     String[] words_level_3;
@@ -90,7 +91,7 @@ public class MainGameActivity extends AppCompatActivity {
         game_over_screen.setVisibility(View.INVISIBLE);
         score_gameOver = findViewById(R.id.score_gameOver);
 
-        fallingAnimation = createFallingAnimation(true);
+        fallingAnimation = createFallingAnimation();
 
         getRandomWord();
         startFallingAnimation();
@@ -107,18 +108,6 @@ public class MainGameActivity extends AppCompatActivity {
         setKeyHeightForLinearLayout(thirdRow_en, keyHeight);
 
         LinearLayout forthRow_en = findViewById(R.id.forth_row_en);
-        setKeyHeightForLinearLayout(forthRow_en, keyHeight);
-
-        LinearLayout firstRow_hy = findViewById(R.id.first_row_hy);
-        setKeyHeightForLinearLayout(firstRow_en, keyHeight);
-
-        LinearLayout secondRow_hy = findViewById(R.id.second_row_hy);
-        setKeyHeightForLinearLayout(secondRow_en, keyHeight);
-
-        LinearLayout thirdRow_hy = findViewById(R.id.third_row_hy);
-        setKeyHeightForLinearLayout(thirdRow_en, keyHeight);
-
-        LinearLayout forthRow_hy = findViewById(R.id.forth_row_hy);
         setKeyHeightForLinearLayout(forthRow_en, keyHeight);
 
         //Armenian keyboard layout
@@ -208,49 +197,37 @@ public class MainGameActivity extends AppCompatActivity {
         TextView backspace_TextView_hy = findViewById(R.id.backspace_button_hy);
         TextView space_TextView_hy = findViewById(R.id.space_button_hy);
 
-        View.OnClickListener textViewClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (v instanceof TextView) {
-                    TextView clickedTextView = (TextView) v;
-                    String buttonText = clickedTextView.getText().toString().toLowerCase();
-                    text.append(buttonText);
-                    wroten_text.setText(text.toString());
-                    if (checkLastStrings()) {
-                        text.setLength(0);
-                        wroten_text.setText(" ");
-                        startFallingAnimation();
-                        score_textView.setText("Score : " + score);
-                    }
+        View.OnClickListener textViewClickListener = v -> {
+            if (v instanceof TextView) {
+                TextView clickedTextView = (TextView) v;
+                String buttonText = clickedTextView.getText().toString().toLowerCase();
+                text.append(buttonText);
+                wroten_text.setText(text.toString());
+                if (checkLastStrings()) {
+                    text.setLength(0);
+                    wroten_text.setText(" ");
+                    startFallingAnimation();
+                    score_textView.setText("Score : " + score);
                 }
             }
         };
 
-        backspace_TextView_en.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (text.length() > 0) {
-                    text.deleteCharAt(text.length() - 1);
-                    wroten_text.setText(text.toString());
-                }
-            }
-        });
-
-        space_TextView_en.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.append(" ");
+        backspace_TextView_en.setOnClickListener(v -> {
+            if (text.length() > 0) {
+                text.deleteCharAt(text.length() - 1);
                 wroten_text.setText(text.toString());
             }
         });
 
-        backspace_TextView_hy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (text.length() > 0) {
-                    text.deleteCharAt(text.length() - 1);
-                    wroten_text.setText(text.toString());
-                }
+        space_TextView_en.setOnClickListener(v -> {
+            text.append(" ");
+            wroten_text.setText(text.toString());
+        });
+
+        backspace_TextView_hy.setOnClickListener(v -> {
+            if (text.length() > 0) {
+                text.deleteCharAt(text.length() - 1);
+                wroten_text.setText(text.toString());
             }
         });
 
@@ -371,11 +348,7 @@ public class MainGameActivity extends AppCompatActivity {
     protected void startFallingAnimation() {
         if (!fallingAnimation.hasStarted() || fallingAnimation.hasEnded()) {
             word.clearAnimation();
-            if (checkLastStrings()) {
-                fallingAnimation = createFallingAnimation(true);
-            } else {
-                fallingAnimation = createFallingAnimation(false);
-            }
+            fallingAnimation = createFallingAnimation();
             word.startAnimation(fallingAnimation);
         }
     }
@@ -401,7 +374,7 @@ public class MainGameActivity extends AppCompatActivity {
 
 
     //Animation
-    private Animation createFallingAnimation(boolean startFromTop) {
+    private Animation createFallingAnimation() {
         TranslateAnimation animation = new TranslateAnimation(
                 TranslateAnimation.ABSOLUTE, 0f,
                 TranslateAnimation.ABSOLUTE, 0f,
@@ -431,14 +404,15 @@ public class MainGameActivity extends AppCompatActivity {
                 wroten_text.setText(" ");
                 text.setLength(0);
                 if (health == 0) {
+                    word.clearAnimation();
+                    animation.setAnimationListener(null);
+                    english_layout.setVisibility(View.GONE);
+                    armenian_layout.setVisibility(View.GONE);
+                    game_over_screen.setVisibility(View.VISIBLE);
+                    score_gameOver.setText("Game Over");
+                    userLoginManager.saveHighscore(String.valueOf(score));
                     if (!userLoginManager.getUserId().equals("")) {
-                        if (score == 0) {
-                            word.clearAnimation();
-                            animation.setAnimationListener(null);
-                            english_layout.setVisibility(View.GONE);
-                            armenian_layout.setVisibility(View.GONE);
-                            game_over_screen.setVisibility(View.VISIBLE);
-                            score_gameOver.setText("Game Over");
+                        if (score > 500) {
                             String[] field = new String[2];
                             field[0] = "id";
                             field[1] = "score";
@@ -449,8 +423,7 @@ public class MainGameActivity extends AppCompatActivity {
                             PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/record.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
-                                    String result = putData.getResult();
-                                    Toast.makeText(MainGameActivity.this, result, Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MainGameActivity.this, "New record saved!", Toast.LENGTH_LONG).show();
                                 }
                             }
                         } else {

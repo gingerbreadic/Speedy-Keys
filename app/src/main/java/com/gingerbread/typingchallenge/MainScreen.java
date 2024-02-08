@@ -1,8 +1,5 @@
 package com.gingerbread.typingchallenge;
 
-import android.content.DialogInterface;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 
@@ -14,9 +11,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 import java.util.Locale;
-
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 
 public class MainScreen extends AppCompatActivity {
 
@@ -54,26 +48,23 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void meowNavigation() {
-        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-            @Override
-            public Unit invoke(MeowBottomNavigation.Model model) {
-                switch (model.getId()) {
-                    case 1:
-                        currentFragment = new HomeFragment();
-                        break;
-                    case 2:
-                        currentFragment = new LeaderboardFragment();
-                        break;
-                    case 3:
-                        currentFragment = new ProfileFragment();
-                        break;
-                    case 4:
-                        currentFragment = new SettingsFragment();
-                        break;
-                }
-                replaceFragment(currentFragment);
-                return null;
+        bottomNavigation.setOnClickMenuListener(model -> {
+            switch (model.getId()) {
+                case 1:
+                    currentFragment = new HomeFragment();
+                    break;
+                case 2:
+                    currentFragment = new LeaderboardFragment();
+                    break;
+                case 3:
+                    currentFragment = new ProfileFragment();
+                    break;
+                case 4:
+                    currentFragment = new SettingsFragment();
+                    break;
             }
+            replaceFragment(currentFragment);
+            return null;
         });
     }
 
@@ -98,12 +89,7 @@ public class MainScreen extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Exit")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
+                .setPositiveButton("Yes", (dialog, which) -> finish())
                 .setNegativeButton("No", null)
                 .show();
 
