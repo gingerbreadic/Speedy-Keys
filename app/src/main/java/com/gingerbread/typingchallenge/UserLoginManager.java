@@ -41,9 +41,9 @@ public class UserLoginManager {
         return sharedPreferences.getString(KEY_USERS_HIGHSCORE, "");
     }
 
-    public void saveHighscore(String highscore) {
+    public void saveHighscore(Integer highscore) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_USERS_HIGHSCORE, highscore);
+        editor.putString(KEY_USERS_HIGHSCORE, String.valueOf(highscore));
         editor.apply();
     }
 

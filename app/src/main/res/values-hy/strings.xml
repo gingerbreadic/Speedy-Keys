@@ -12,4 +12,6 @@
     <string name="game_over">Խաղն ավարտված է</string>
     <string name="log_out">Դուրս գալ</string>
     <string name="high_score">"Լավագույն միավորը : "</string>
+    <string name="health">"Կյանքեր :  "</string>
+    <string name="score_label">Հաշիվ ։</string>
 </resources>

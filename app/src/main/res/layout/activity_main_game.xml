@@ -35,7 +35,7 @@
 
         <TextView
             android:id="@+id/health_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Health : 10"
             android:textSize="20dp"
@@ -50,7 +50,7 @@
 
         <TextView
             android:id="@+id/score_textView"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_marginBottom="20dp"
             android:text="Score : 0"
