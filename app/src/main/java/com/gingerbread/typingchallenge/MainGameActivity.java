@@ -16,8 +16,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -36,6 +34,8 @@ public class MainGameActivity extends AppCompatActivity {
     int score = 0;
     int health = 10;
     int[] range;
+    int range_start;
+    int range_end;
     StringBuilder text = new StringBuilder();
     Animation fallingAnimation;
     ConstraintLayout armenian_layout, game_over_screen, english_layout, global;
@@ -44,6 +44,10 @@ public class MainGameActivity extends AppCompatActivity {
     UserLoginManager userLoginManager;
     AssetManager assetManager;  // Declare assetManager as a class member
 
+    public static int generateNumberLine(int min, int max) {
+        Random random = new Random();
+        return random.nextInt((max - min) + 1) + min;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +77,14 @@ public class MainGameActivity extends AppCompatActivity {
                 global.setVisibility(View.VISIBLE);
                 english_layout.setVisibility(View.GONE);
                 try {
-                    AssetManager assetManager = getApplicationContext().getAssets();
-                    range = getRange(String.valueOf(assetManager.open("arm_range.txt")));
+                    range = getRangeFromAssets("arm_range.txt");
+                    range_start = range[0];
+                    range_end = range[1];
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
-                numberLine = generateNumberLine(range[0], range[1]);
+
+                numberLine = generateNumberLine(range_start, range_end);
             } else {
                 english_layout.setVisibility(View.VISIBLE);
                 global.setVisibility(View.VISIBLE);
@@ -325,11 +331,10 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     protected void getRandomWord() throws IOException {
-        int randomNumber = generateNumberLine(range[0], range[1]);
+        numberLine = generateNumberLine(range[0], range[1]);
 
-        if (score <= 1000){
-            AssetManager assetManager = getApplicationContext().getAssets();
-            word.setText(readRandomWord(String.valueOf(assetManager.open("arm_words.txt")), numberLine));}
+        if (score <= 1000)
+            word.setText(readRandomWord("arm_words.txt", numberLine));
 //        } else if (score > 1000 && score <= 2500) {
 //            array_level = words_level_2;
 //            speed -= 10;
@@ -355,7 +360,6 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
-
     private boolean checkLastStrings() {
         String typedText = text.toString();
         int wordLength = word.length();
@@ -377,7 +381,6 @@ public class MainGameActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
     //Animation
     private Animation createFallingAnimation() {
@@ -466,7 +469,6 @@ public class MainGameActivity extends AppCompatActivity {
         return animation;
     }
 
-
     private void setKeyHeightForLinearLayout(LinearLayout linearLayout, int height) {
         int childCount = linearLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -477,33 +479,39 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
-    public static int[] getRange(String file_name) throws IOException {
-        File file = new File(file_name);
+    public int[] getRangeFromAssets(String fileName) throws IOException {
+        try (InputStream inputStream = getAssets().open(fileName);
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
-        FileReader fileReader = new FileReader(file);
+            String line = br.readLine();
 
-        BufferedReader br = new BufferedReader(fileReader);
+            if (line == null) {
+                throw new IOException("File is empty");
+            }
 
-        String[] range = br.readLine().split("-");
+            String[] range = line.split("-");
 
-        return new int[]{Integer.parseInt(range[0]), Integer.parseInt((range[1]))};
+            return new int[]{Integer.parseInt(range[0].trim()), Integer.parseInt(range[1].trim())};
+        } catch (IOException e) {
+            // Handle any IOException that may occur
+            throw new IOException("Error reading from assets: " + fileName, e);
+        } catch (NumberFormatException e) {
+            // Handle the case where parsing to int fails
+            throw new IOException("Invalid number format in the file", e);
+        }
     }
 
+    private String readRandomWord(String file_name, int lineNumber) throws IOException {
+        try (InputStream inputStream = getAssets().open(file_name);
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
-
-    public static int generateNumberLine(int min, int max){
-        Random random = new Random();
-        return random.nextInt((max-min) + 1) + min;
-    }
-
-    private static String readRandomWord(String file_name, int lineNumber) throws IOException {
-        File file = new File(file_name);
-        FileReader fileReader = new FileReader(file);
-        try (BufferedReader br = new BufferedReader(fileReader)) {
             for (int i = 0; i < lineNumber; i++) {
                 br.readLine();
             }
             return br.readLine();
+        } catch (IOException e) {
+            throw new IOException("Error reading from assets: " + file_name, e);
         }
     }
 }
+

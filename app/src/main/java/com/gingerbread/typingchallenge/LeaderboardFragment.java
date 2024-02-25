@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LeaderboardFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -38,10 +39,12 @@ public class LeaderboardFragment extends Fragment {
 
 
         // Add leaderboard items to leaderboardList
+
         leaderboardList.add(new LeaderboardItem("Player 1", 1000));
         leaderboardList.add(new LeaderboardItem("Player 2", 900));
         leaderboardList.add(new LeaderboardItem("Player 2", 1200));
         leaderboardList.add(new LeaderboardItem("Player 3", 800));
+        Arrays.sort(new ArrayList[]{leaderboardList});
 
         // Notify the adapter that the data set has changed
         leaderboardAdapter.notifyDataSetChanged();

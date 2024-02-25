@@ -81,35 +81,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd8723ad-d715-42b6-bae8-925db6760ca6" name="Changes" comment="fixed some bugs">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/LeaderboardAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/LeaderboardItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/arm_range.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/arm_words.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/eng_range.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/eng_words.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_leaderboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="cd8723ad-d715-42b6-bae8-925db6760ca6" name="Changes" comment="not working but, added many words for Armenian">
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/eng_words.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/LeaderboardFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/LeaderboardFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/MainGameActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/MainGameActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/UserLoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/UserLoginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_game.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_leaderboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_leaderboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-hy/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-hy/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/arm_range.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/arm_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/arm_words.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/eng_range.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/arm_range.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/typingchallenge/eng_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/eng_range.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +105,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[CMAQJZY5EYWCXGQ8]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\User\.android\avd\Pixel_7_API_27.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -196,33 +182,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ApkExportedModule&quot;: &quot;Typing_Challenge.app&quot;,
-    &quot;ExportApk.ApkPathForTyping_Challenge.app&quot;: &quot;D:\\AndroidStudioProjects\\TypingChallenge\\app&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;android-custom-viewC:/Users/User/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.3.2/7bc0f04ccbe0159dc303408af769dc1bbb80d584/recyclerview-1.3.2-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED&quot;: &quot;RecyclerView&quot;,
-    &quot;android-custom-viewC:/Users/User/.gradle/caches/modules-2/files-2.1/com.etebarian/meow-bottom-navigation/1.2.0/902648d1ca045a82dae2eaa21043c14de3084cad/meow-bottom-navigation-1.2.0-sources.jar!/com/etebarian/meowbottomnavigation/MeowBottomNavigation.kt_SELECTED&quot;: &quot;MeowBottomNavigation&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/AndroidStudioProjects/TypingChallenge/app/src/main/res/drawable&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ApkExportedModule": "Typing_Challenge.app",
+    "ExportApk.ApkPathForTyping_Challenge.app": "D:\\AndroidStudioProjects\\TypingChallenge\\app",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "android-custom-viewC:/Users/User/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.3.2/7bc0f04ccbe0159dc303408af769dc1bbb80d584/recyclerview-1.3.2-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED": "RecyclerView",
+    "android-custom-viewC:/Users/User/.gradle/caches/modules-2/files-2.1/com.etebarian/meow-bottom-navigation/1.2.0/902648d1ca045a82dae2eaa21043c14de3084cad/meow-bottom-navigation-1.2.0-sources.jar!/com/etebarian/meowbottomnavigation/MeowBottomNavigation.kt_SELECTED": "MeowBottomNavigation",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/AndroidStudioProjects/TypingChallenge/app/src/main/assets",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ExportApk.BuildVariants&quot;: [
-      &quot;release&quot;
+  "keyToStringList": {
+    "ExportApk.BuildVariants": [
+      "release"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.gingerbread.typingchallenge" />
@@ -232,6 +218,7 @@
       <recent name="com.example.typingchallenge" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\AndroidStudioProjects\TypingChallenge\app\src\main\assets" />
       <recent name="D:\AndroidStudioProjects\TypingChallenge\app\src\main\res\drawable" />
     </key>
     <key name="android.template.807425475">
@@ -508,7 +495,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706388531736</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="not working but, added many words for Armenian">
+      <option name="closed" value="true" />
+      <created>1708776398499</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1708776398499</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -553,6 +548,7 @@
     <MESSAGE value="now sending message for e-mail verification register" />
     <MESSAGE value="optimized" />
     <MESSAGE value="register page from zero" />
-    <option name="LAST_COMMIT_MESSAGE" value="register page from zero" />
+    <MESSAGE value="not working but, added many words for Armenian" />
+    <option name="LAST_COMMIT_MESSAGE" value="not working but, added many words for Armenian" />
   </component>
 </project>
