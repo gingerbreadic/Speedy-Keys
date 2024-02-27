@@ -36,13 +36,13 @@ public class MainGameActivity extends AppCompatActivity {
     int[] range;
     int range_start;
     int range_end;
+    String words_file;
     StringBuilder text = new StringBuilder();
     Animation fallingAnimation;
     ConstraintLayout armenian_layout, game_over_screen, english_layout, global;
     String id;
     TextView score_gameOver;
     UserLoginManager userLoginManager;
-    AssetManager assetManager;  // Declare assetManager as a class member
 
     public static int generateNumberLine(int min, int max) {
         Random random = new Random();
@@ -66,8 +66,6 @@ public class MainGameActivity extends AppCompatActivity {
         word = findViewById(R.id.word);
         health_textView = findViewById(R.id.health_textView);
         score_textView = findViewById(R.id.score_textView);
-        assetManager = getApplicationContext().getAssets();
-
 
         LanguageManager languageManager = new LanguageManager(this);
         String savedLanguage = languageManager.getSelectedLanguage();
@@ -84,16 +82,37 @@ public class MainGameActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+                words_file = "arm_words.txt";
                 numberLine = generateNumberLine(range_start, range_end);
             } else {
                 english_layout.setVisibility(View.VISIBLE);
                 global.setVisibility(View.VISIBLE);
                 armenian_layout.setVisibility(View.GONE);
+                try {
+                    range = getRangeFromAssets("eng_range.txt");
+                    range_start = range[0];
+                    range_end = range[1];
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                words_file = "eng_words.txt";
+                numberLine = generateNumberLine(range_start, range_end);
             }
         } else {
             armenian_layout.setVisibility(View.GONE);
             global.setVisibility(View.VISIBLE);
             english_layout.setVisibility(View.VISIBLE);
+            try {
+                range = getRangeFromAssets("eng_range.txt");
+                range_start = range[0];
+                range_end = range[1];
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            words_file = "eng_words.txt";
+            numberLine = generateNumberLine(range_start, range_end);
         }
 
         speed = 7000;
@@ -334,7 +353,7 @@ public class MainGameActivity extends AppCompatActivity {
         numberLine = generateNumberLine(range[0], range[1]);
 
         if (score <= 1000)
-            word.setText(readRandomWord("arm_words.txt", numberLine));
+            word.setText(readRandomWord(words_file, numberLine));
 //        } else if (score > 1000 && score <= 2500) {
 //            array_level = words_level_2;
 //            speed -= 10;
