@@ -37,6 +37,7 @@ public class MainGameActivity extends AppCompatActivity {
     int range_start;
     int range_end;
     String words_file;
+    String range_file;
     StringBuilder text = new StringBuilder();
     Animation fallingAnimation;
     ConstraintLayout armenian_layout, game_over_screen, english_layout, global;
@@ -498,19 +499,23 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
-    public int[] getRangeFromAssets(String fileName) throws IOException {
+    public int[] getRangeFromAssets(String fileName, int range_line) throws IOException {
         try (InputStream inputStream = getAssets().open(fileName);
              BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
-            String line = br.readLine();
+            String line;
+            int currentLine = 0;
 
-            if (line == null) {
-                throw new IOException("File is empty");
+            while ((line = br.readLine()) != null) {
+                currentLine++;
+                if (currentLine == range_line) {
+                    String[] range = line.split("-");
+                    return new int[]{Integer.parseInt(range[0].trim()), Integer.parseInt(range[1].trim())};
+                }
             }
 
-            String[] range = line.split("-");
-
-            return new int[]{Integer.parseInt(range[0].trim()), Integer.parseInt(range[1].trim())};
+            // If the specified line is not found
+            throw new IOException("Line " + range_line + " not found in file: " + fileName);
         } catch (IOException e) {
             // Handle any IOException that may occur
             throw new IOException("Error reading from assets: " + fileName, e);
@@ -519,6 +524,7 @@ public class MainGameActivity extends AppCompatActivity {
             throw new IOException("Invalid number format in the file", e);
         }
     }
+
 
     private String readRandomWord(String file_name, int lineNumber) throws IOException {
         try (InputStream inputStream = getAssets().open(file_name);
