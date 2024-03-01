@@ -1,6 +1,5 @@
 package com.gingerbread.typingchallenge;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -23,7 +22,6 @@ import java.util.Random;
 
 
 public class MainGameActivity extends AppCompatActivity {
-    //English game
     TextView wroten_text;
     TextView score_textView;
     TextView health_textView;
@@ -31,11 +29,9 @@ public class MainGameActivity extends AppCompatActivity {
     int screenHeight;
     int numberLine;
     int speed;
-    int score = 0;
+    int score = 1200;
     int health = 10;
     int[] range;
-    int range_start;
-    int range_end;
     String words_file;
     String range_file;
     StringBuilder text = new StringBuilder();
@@ -44,11 +40,6 @@ public class MainGameActivity extends AppCompatActivity {
     String id;
     TextView score_gameOver;
     UserLoginManager userLoginManager;
-
-    public static int generateNumberLine(int min, int max) {
-        Random random = new Random();
-        return random.nextInt((max - min) + 1) + min;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,45 +66,24 @@ public class MainGameActivity extends AppCompatActivity {
                 armenian_layout.setVisibility(View.VISIBLE);
                 global.setVisibility(View.VISIBLE);
                 english_layout.setVisibility(View.GONE);
-                try {
-                    range = getRangeFromAssets("arm_range.txt");
-                    range_start = range[0];
-                    range_end = range[1];
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
+                range_file = "arm_range.txt";
                 words_file = "arm_words.txt";
-                numberLine = generateNumberLine(range_start, range_end);
             } else {
                 english_layout.setVisibility(View.VISIBLE);
                 global.setVisibility(View.VISIBLE);
                 armenian_layout.setVisibility(View.GONE);
-                try {
-                    range = getRangeFromAssets("eng_range.txt");
-                    range_start = range[0];
-                    range_end = range[1];
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
+                range_file = "eng_range.txt";
                 words_file = "eng_words.txt";
-                numberLine = generateNumberLine(range_start, range_end);
             }
         } else {
             armenian_layout.setVisibility(View.GONE);
             global.setVisibility(View.VISIBLE);
             english_layout.setVisibility(View.VISIBLE);
-            try {
-                range = getRangeFromAssets("eng_range.txt");
-                range_start = range[0];
-                range_end = range[1];
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
+            range_file = "eng_range.txt";
             words_file = "eng_words.txt";
-            numberLine = generateNumberLine(range_start, range_end);
         }
 
         speed = 7000;
@@ -124,10 +94,11 @@ public class MainGameActivity extends AppCompatActivity {
         fallingAnimation = createFallingAnimation();
 
         try {
-            getRandomWord();
+            getRandomWord(range_file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         startFallingAnimation();
 
         int keyHeight = (int) (screenHeight * 0.07);
@@ -350,25 +321,29 @@ public class MainGameActivity extends AppCompatActivity {
         sh_TextView_hy.setOnClickListener(textViewClickListener);
     }
 
-    protected void getRandomWord() throws IOException {
-        numberLine = generateNumberLine(range[0], range[1]);
+    protected void getRandomWord(String range_file) throws IOException {
+        if (score <= 1000){
+            range = getRangeFromAssets(range_file, 1);
+            numberLine = generateNumberLine(range[0], range[1]);
+        } else if (score > 1000 && score <= 2500) {
+            range = getRangeFromAssets(range_file, 2);
+            numberLine = generateNumberLine(range[0], range[1]);
+            speed -= 10;
+       } else if (score >= 2500 && score <= 5000) {
+            range = getRangeFromAssets(range_file, 3);
+            numberLine = generateNumberLine(range[0], range[1]);
+            speed -= 15;
+        } else if (score >= 5000 && score <= 6500) {
+            range = getRangeFromAssets(range_file, 4);
+            numberLine = generateNumberLine(range[0], range[1]);
+            speed -= 20;
+        } else {
+            range = getRangeFromAssets(range_file, 5);
+            numberLine = generateNumberLine(range[0], range[1]);
+            speed -= 25;
+        }
 
-        if (score <= 1000)
-            word.setText(readRandomWord(words_file, numberLine));
-//        } else if (score > 1000 && score <= 2500) {
-//            array_level = words_level_2;
-//            speed -= 10;
-//        } else if (score >= 2500 && score <= 5000) {
-//            array_level = words_level_3;
-//            speed -= 15;
-//        } else if (score >= 5000 && score <= 6500) {
-//            array_level = words_level_4;
-//            speed -= 20;
-//        } else {
-//            array_level = words_level_5;
-//            speed -= 25;
-//        }
-
+        word.setText(readRandomWord(words_file, numberLine));
         startFallingAnimation();
     }
 
@@ -389,7 +364,7 @@ public class MainGameActivity extends AppCompatActivity {
             String lastTypedSubstring = typedText.substring(typedText.length() - wordLength);
             if (lastTypedSubstring.equals(currentWord)) {
                 try {
-                    getRandomWord();
+                    getRandomWord(range_file);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -423,7 +398,7 @@ public class MainGameActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 try {
-                    getRandomWord();
+                    getRandomWord(range_file);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -432,7 +407,7 @@ public class MainGameActivity extends AppCompatActivity {
             @Override
             public void onAnimationRepeat(Animation animation) {
                 try {
-                    getRandomWord();
+                    getRandomWord(range_file);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -537,6 +512,11 @@ public class MainGameActivity extends AppCompatActivity {
         } catch (IOException e) {
             throw new IOException("Error reading from assets: " + file_name, e);
         }
+    }
+
+    public static int generateNumberLine(int min, int max) {
+        Random random = new Random();
+        return random.nextInt((max - min) + 1) + min;
     }
 }
 
