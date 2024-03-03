@@ -14,4 +14,6 @@
     <string name="high_score">"High Score : "</string>
     <string name="health">"Health : "</string>
     <string name="score_label">Score ։</string>
+    <string name="play">Play</string>
+    <string name="leaderboard">Leaderboard</string>
 </resources>

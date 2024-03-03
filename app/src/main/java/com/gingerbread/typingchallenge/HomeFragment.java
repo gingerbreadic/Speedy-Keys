@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment{
         username = userLoginManager.getUsername();
         highscore = userLoginManager.getUsersHighScore();
 
-        play_game_button.setText(String.valueOf(highscore));
+        play_game_button.setText(R.string.play);
 
         play_game_button.setOnClickListener(new View.OnClickListener() {
             @Override

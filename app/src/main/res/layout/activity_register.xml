@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/montserratarmregular"
-        android:hint="Confirm Password"
+        android:hint="Verification code"
         android:inputType="textPassword"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/verify_email_button"

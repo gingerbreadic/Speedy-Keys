@@ -14,4 +14,6 @@
     <string name="high_score">"Լավագույն միավորը : "</string>
     <string name="health">"Կյանքեր :  "</string>
     <string name="score_label">Հաշիվ ։</string>
+    <string name="play">Խաղալ</string>
+    <string name="leaderboard">Առաջատար աղյուսակ</string>
 </resources>

@@ -8,8 +8,8 @@
         android:id="@+id/leaderboard_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Leaderboard"
+        android:textAlignment="center"
+        android:text="@string/leaderboard"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -21,5 +21,13 @@
         android:layout_below="@id/leaderboard_text"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_leaderboard" />
+
+    <ProgressBar
+        android:id="@+id/leaderboard_progressbar"
+        android:visibility="invisible"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerInParent="true"
+        />
 
 </RelativeLayout>

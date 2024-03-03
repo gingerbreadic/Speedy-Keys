@@ -132,7 +132,7 @@ public class registerActivity extends AppCompatActivity {
             protected Void doInBackground(Void... voids) {
                 // email ID of  Sender.
                 String sender = "***********";
-                String senderPass = "************";
+                String senderPass = "*************";
 
                 // using host as yandex
                 String host = "smtp.yandex.ru";
