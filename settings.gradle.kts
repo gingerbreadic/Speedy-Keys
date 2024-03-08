@@ -26,5 +26,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Typing Challenge"
+rootProject.name = "Speedy Keys"
 include(":app")

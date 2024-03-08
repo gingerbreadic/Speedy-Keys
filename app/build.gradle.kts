@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.gingerbread.typingchallenge"
+    namespace = "com.gingerbread.speedykeys"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.typingchallenge"
+        applicationId = namespace
         minSdk = 24
         targetSdk = 34
         versionCode = 1
