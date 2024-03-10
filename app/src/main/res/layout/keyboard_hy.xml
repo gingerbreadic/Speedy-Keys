@@ -24,7 +24,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Է"
+                android:text="է"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -36,7 +36,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Թ"
+                android:text="թ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Փ"
+                android:text="փ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ձ"
+                android:text="ձ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -72,7 +72,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ջ"
+                android:text="ջ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -96,7 +96,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ր"
+                android:text="ռ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -108,7 +108,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Չ"
+                android:text="չ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -120,7 +120,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ճ"
+                android:text="ճ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -132,7 +132,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ժ"
+                android:text="ժ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -144,7 +144,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ծ"
+                android:text="ծ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -165,7 +165,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ք"
+                android:text="ք"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -177,7 +177,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ո"
+                android:text="ո"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -189,7 +189,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ե"
+                android:text="ե"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -201,7 +201,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ռ"
+                android:text="ր"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -213,7 +213,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Տ"
+                android:text="տ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -225,7 +225,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ը"
+                android:text="ը"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -249,7 +249,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ի"
+                android:text="ի"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -261,7 +261,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Օ"
+                android:text="օ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -273,7 +273,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Պ"
+                android:text="պ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -294,7 +294,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ա"
+                android:text="ա"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -306,7 +306,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ս"
+                android:text="ս"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -318,7 +318,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Դ"
+                android:text="դ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -330,7 +330,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ֆ"
+                android:text="ֆ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -342,7 +342,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Գ"
+                android:text="գ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -354,7 +354,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Հ"
+                android:text="հ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -366,7 +366,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Յ"
+                android:text="յ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -378,7 +378,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Կ"
+                android:text="կ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -390,7 +390,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Լ"
+                android:text="լ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -402,7 +402,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Խ"
+                android:text="խ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -438,7 +438,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Զ"
+                android:text="զ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -450,7 +450,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ղ"
+                android:text="ղ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -462,7 +462,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ց"
+                android:text="ց"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -474,7 +474,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Վ"
+                android:text="վ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -486,7 +486,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Բ"
+                android:text="բ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -498,7 +498,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Ն"
+                android:text="ն"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -510,7 +510,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Մ"
+                android:text="մ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -522,7 +522,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_background"
                 android:gravity="center"
-                android:text="Շ"
+                android:text="շ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/black"
                 android:textSize="20dp" />

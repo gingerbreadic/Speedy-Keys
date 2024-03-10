@@ -29,7 +29,7 @@ public class MainGameActivity extends AppCompatActivity {
     int screenHeight;
     int numberLine;
     int speed;
-    int score = 1200;
+    int score = 0;
     int health = 10;
     int[] range;
     String words_file;
@@ -212,7 +212,7 @@ public class MainGameActivity extends AppCompatActivity {
                     text.setLength(0);
                     wroten_text.setText(" ");
                     startFallingAnimation();
-                    score_textView.setText("Score : " + score);
+                    score_textView.setText(getString(R.string.score_label) + score);
                 }
             }
         };
@@ -362,7 +362,7 @@ public class MainGameActivity extends AppCompatActivity {
 
         if (typedText.length() >= wordLength) {
             String lastTypedSubstring = typedText.substring(typedText.length() - wordLength);
-            if (lastTypedSubstring.equals(currentWord)) {
+            if (lastTypedSubstring.equalsIgnoreCase(currentWord)) {
                 try {
                     getRandomWord(range_file);
                 } catch (IOException e) {
@@ -412,7 +412,7 @@ public class MainGameActivity extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
                 health--;
-                health_textView.setText("Health: " + health);
+                health_textView.setText(getString(R.string.health) + health);
                 wroten_text.setText(" ");
                 text.setLength(0);
                 if (health == 0) {
@@ -421,7 +421,7 @@ public class MainGameActivity extends AppCompatActivity {
                     english_layout.setVisibility(View.GONE);
                     armenian_layout.setVisibility(View.GONE);
                     game_over_screen.setVisibility(View.VISIBLE);
-                    score_gameOver.setText("Game Over");
+                    score_gameOver.setText(getString(R.string.game_over));
                     userLoginManager.saveHighscore(score);
                     if (!userLoginManager.getUserId().equals("")) {
                         if (score > 500) {

@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/leaderboard_background"
     android:id="@+id/main_layout"
     tools:context=".MainScreen">
 
@@ -16,6 +18,14 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:mbn_circleColor="#FFFFFF"
+        app:mbn_backgroundBottomColor="@color/white"
+        app:mbn_countBackgroundColor="#ff6f00"
+        app:mbn_countTextColor="#FFFFFF"
+        app:mbn_defaultIconColor="#90a4ae"
+        app:mbn_rippleColor="#2f424242"
+        app:mbn_selectedIconColor="#3c415e"
+        app:mbn_shadowColor="#1f212121"
         android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

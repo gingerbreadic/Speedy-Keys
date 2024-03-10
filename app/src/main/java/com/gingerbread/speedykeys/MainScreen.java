@@ -52,15 +52,19 @@ public class MainScreen extends AppCompatActivity {
             switch (model.getId()) {
                 case 1:
                     currentFragment = new HomeFragment();
+                    main_layout.setBackgroundResource(R.drawable.home_background);
                     break;
                 case 2:
                     currentFragment = new LeaderboardFragment();
+                    main_layout.setBackgroundResource(R.drawable.leaderboard_background);
                     break;
                 case 3:
                     currentFragment = new ProfileFragment();
+                    main_layout.setBackgroundResource(R.drawable.profile_background);
                     break;
                 case 4:
                     currentFragment = new SettingsFragment();
+                    main_layout.setBackgroundResource(R.drawable.settings_background);
                     break;
             }
             replaceFragment(currentFragment);
@@ -92,7 +96,6 @@ public class MainScreen extends AppCompatActivity {
                 .setPositiveButton("Yes", (dialog, which) -> finish())
                 .setNegativeButton("No", null)
                 .show();
-
     }
 
     private void setLocale(String langCode) {

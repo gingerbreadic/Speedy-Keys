@@ -9,8 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:text="@string/leaderboard"
-        android:textSize="25dp"
+        android:textSize="40dp"
+        android:layout_marginTop="10dp"
         android:textStyle="bold" />
 
 
