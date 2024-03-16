@@ -1,5 +1,6 @@
 package com.gingerbread.speedykeys;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -40,6 +41,7 @@ public class MainGameActivity extends AppCompatActivity {
     String id;
     TextView score_gameOver;
     UserLoginManager userLoginManager;
+    MediaPlayer boom_sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class MainGameActivity extends AppCompatActivity {
         word = findViewById(R.id.word);
         health_textView = findViewById(R.id.health_textView);
         score_textView = findViewById(R.id.score_textView);
+        boom_sound = MediaPlayer.create(this, R.raw.boom_sound);
 
         LanguageManager languageManager = new LanguageManager(this);
         String savedLanguage = languageManager.getSelectedLanguage();
@@ -209,6 +212,7 @@ public class MainGameActivity extends AppCompatActivity {
                 text.append(buttonText);
                 wroten_text.setText(text.toString());
                 if (checkLastStrings()) {
+                    boom_sound.start();
                     text.setLength(0);
                     wroten_text.setText(" ");
                     startFallingAnimation();
