@@ -40,8 +40,10 @@ public class MainGameActivity extends AppCompatActivity {
     ConstraintLayout armenian_layout, game_over_screen, english_layout, global;
     String id;
     TextView score_gameOver;
+    TextView space_TextView_hy, space_TextView_en;
     UserLoginManager userLoginManager;
     MediaPlayer boom_sound;
+    boolean level2, level3, level4, level5 = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +97,11 @@ public class MainGameActivity extends AppCompatActivity {
         score_gameOver = findViewById(R.id.score_gameOver);
 
         fallingAnimation = createFallingAnimation();
+
+        TextView backspace_TextView_en = findViewById(R.id.backspace_button);
+        space_TextView_en = findViewById(R.id.space_button);
+        TextView backspace_TextView_hy = findViewById(R.id.backspace_button_hy);
+        space_TextView_hy = findViewById(R.id.space_button_hy);
 
         try {
             getRandomWord(range_file);
@@ -199,11 +206,6 @@ public class MainGameActivity extends AppCompatActivity {
         TextView n_TextView_en = findViewById(R.id.n_button);
         TextView m_TextView_en = findViewById(R.id.m_button);
 
-        //Special
-        TextView backspace_TextView_en = findViewById(R.id.backspace_button);
-        TextView space_TextView_en = findViewById(R.id.space_button);
-        TextView backspace_TextView_hy = findViewById(R.id.backspace_button_hy);
-        TextView space_TextView_hy = findViewById(R.id.space_button_hy);
 
         View.OnClickListener textViewClickListener = v -> {
             if (v instanceof TextView) {
@@ -216,7 +218,7 @@ public class MainGameActivity extends AppCompatActivity {
                     text.setLength(0);
                     wroten_text.setText(" ");
                     startFallingAnimation();
-                    score_textView.setText(getString(R.string.score_label) + score);
+                    score_textView.setText(getString(R.string.score_label) + " " + score);
                 }
             }
         };
@@ -228,10 +230,6 @@ public class MainGameActivity extends AppCompatActivity {
             }
         });
 
-        space_TextView_en.setOnClickListener(v -> {
-            text.append(" ");
-            wroten_text.setText(text.toString());
-        });
 
         backspace_TextView_hy.setOnClickListener(v -> {
             if (text.length() > 0) {
@@ -240,13 +238,6 @@ public class MainGameActivity extends AppCompatActivity {
             }
         });
 
-        space_TextView_hy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.append(" ");
-                wroten_text.setText(text.toString());
-            }
-        });
 
         //Row first
         q_TextView_en.setOnClickListener(textViewClickListener);
@@ -329,22 +320,52 @@ public class MainGameActivity extends AppCompatActivity {
         if (score <= 1000){
             range = getRangeFromAssets(range_file, 1);
             numberLine = generateNumberLine(range[0], range[1]);
+            space_TextView_en.setText("Level 1");
+            space_TextView_hy.setText("Level 1");
         } else if (score > 1000 && score <= 2500) {
             range = getRangeFromAssets(range_file, 2);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 10;
+            if (!level2){
+                word.setText("Level 2");
+                level2 = true;
+                return;
+            }
+            space_TextView_en.setText("Level 2");
+            space_TextView_hy.setText("Level 2");
        } else if (score >= 2500 && score <= 5000) {
             range = getRangeFromAssets(range_file, 3);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 15;
+            if (!level3){
+                word.setText("Level 3");
+                level3 = true;
+                return;
+            }
+            space_TextView_en.setText("Level 3");
+            space_TextView_hy.setText("Level 3");
         } else if (score >= 5000 && score <= 6500) {
             range = getRangeFromAssets(range_file, 4);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 20;
+            if (!level4){
+                word.setText("Level 4");
+                level4 = true;
+                return;
+            }
+            space_TextView_en.setText("Level 4");
+            space_TextView_hy.setText("Level 4");
         } else {
             range = getRangeFromAssets(range_file, 5);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 25;
+            if (!level5){
+                word.setText("Level 5");
+                level5 = true;
+                return;
+            }
+            space_TextView_en.setText("Level 5");
+            space_TextView_hy.setText("Level 5");
         }
 
         word.setText(readRandomWord(words_file, numberLine));
@@ -428,7 +449,7 @@ public class MainGameActivity extends AppCompatActivity {
                     score_gameOver.setText(getString(R.string.game_over));
                     userLoginManager.saveHighscore(score);
                     if (!userLoginManager.getUserId().equals("")) {
-                        if (score > 500) {
+                        if (score >= 500) {
                             String[] field = new String[2];
                             field[0] = "id";
                             field[1] = "score";
@@ -492,7 +513,6 @@ public class MainGameActivity extends AppCompatActivity {
                     return new int[]{Integer.parseInt(range[0].trim()), Integer.parseInt(range[1].trim())};
                 }
             }
-
             // If the specified line is not found
             throw new IOException("Line " + range_line + " not found in file: " + fileName);
         } catch (IOException e) {

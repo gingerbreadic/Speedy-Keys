@@ -60,7 +60,7 @@ public class MainScreen extends AppCompatActivity {
                     break;
                 case 3:
                     currentFragment = new ProfileFragment();
-                    main_layout.setBackgroundResource(R.drawable.profile_background);
+                    main_layout.setBackgroundResource(R.drawable.account_background);
                     break;
                 case 4:
                     currentFragment = new SettingsFragment();

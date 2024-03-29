@@ -6,9 +6,9 @@
     <string name="username">Մականուն</string>
     <string name="sign_in">Մուտք գործել</string>
     <string name="e_mail_address">Էլ-հասցե</string>
-    <string name="registration_page">Գրանցման էջ</string>
+    <string name="registration">Գրանցում</string>
     <string name="already_have_an_account">Արդեն ունե՞ք հաշիվ</string>
-    <string name="login_page">Մուտքի էջ</string>
+    <string name="login">Մուտք</string>
     <string name="game_over">Խաղն ավարտված է</string>
     <string name="log_out">Դուրս գալ</string>
     <string name="high_score">"Լավագույն միավորը : "</string>

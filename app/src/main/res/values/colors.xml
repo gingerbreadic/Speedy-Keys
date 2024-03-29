@@ -5,8 +5,8 @@
     <color name="red">#FF0000</color>
 
     <!--keyboard colors-->
-    <color name="keyboard_background_color">#D4E7C5</color>
-    <color name="keyboard_divider">#BFD8AF</color>
+    <color name="keyboard_background_color">#14022C</color>
+    <color name="keyboard_divider">#2C0A6D</color>
     <color name="cyan">#00E5FF</color>
     <color name="gray">#8B8181</color>
     <color name="light_blue_600">#FF039BE5</color>

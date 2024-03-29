@@ -6,9 +6,9 @@
     <string name="username">Username</string>
     <string name="sign_in">Sign in</string>
     <string name="e_mail_address">E-mail address</string>
-    <string name="registration_page">Registration Page</string>
+    <string name="registration">Registration</string>
     <string name="already_have_an_account">Already have an account?</string>
-    <string name="login_page">Login Page</string>
+    <string name="login">Log in</string>
     <string name="game_over">Game Over</string>
     <string name="log_out">Log out</string>
     <string name="high_score">"High Score : "</string>
