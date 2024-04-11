@@ -42,7 +42,7 @@ public class MainGameActivity extends AppCompatActivity {
     TextView score_gameOver;
     TextView space_TextView_hy, space_TextView_en;
     UserLoginManager userLoginManager;
-    MediaPlayer boom_sound;
+    MediaPlayer boom_sound, in_game_music;
     boolean level2, level3, level4, level5 = false;
 
     @Override
@@ -63,6 +63,10 @@ public class MainGameActivity extends AppCompatActivity {
         health_textView = findViewById(R.id.health_textView);
         score_textView = findViewById(R.id.score_textView);
         boom_sound = MediaPlayer.create(this, R.raw.boom_sound);
+        in_game_music = MediaPlayer.create(this, R.raw.in_game_music);
+        in_game_music.setLooping(true);
+        in_game_music.start();
+
 
         LanguageManager languageManager = new LanguageManager(this);
         String savedLanguage = languageManager.getSelectedLanguage();
