@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Speedy Keys</string>
-    <string name="confirm_password">Հաստատեք գաղտնաբառը</string>
-    <string name="password">Գաղտնաբառ</string>
-    <string name="username">Մականուն</string>
-    <string name="sign_in">Մուտք գործել</string>
-    <string name="e_mail_address">Էլ-հասցե</string>
-    <string name="registration">Գրանցում</string>
-    <string name="already_have_an_account">Արդեն ունե՞ք հաշիվ</string>
-    <string name="login">Մուտք</string>
     <string name="game_over">Խաղն ավարտված է</string>
     <string name="log_out">Դուրս գալ</string>
     <string name="high_score">"Լավագույն միավորը : "</string>
@@ -16,4 +8,5 @@
     <string name="score_label">Հաշիվ ։</string>
     <string name="play">Խաղալ</string>
     <string name="leaderboard">Առաջատար աղյուսակ</string>
+    <string name="username">Մականուն</string>
 </resources>

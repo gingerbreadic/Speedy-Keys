@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Speedy Keys</string>
-    <string name="confirm_password">Confirm password</string>
-    <string name="password">Password</string>
-    <string name="username">Username</string>
-    <string name="sign_in">Sign in</string>
-    <string name="e_mail_address">E-mail address</string>
-    <string name="registration">Registration</string>
-    <string name="already_have_an_account">Already have an account?</string>
-    <string name="login">Log in</string>
     <string name="game_over">Game Over</string>
     <string name="log_out">Log out</string>
     <string name="high_score">"High Score : "</string>
@@ -16,4 +8,5 @@
     <string name="score_label">Score ։</string>
     <string name="play">Play</string>
     <string name="leaderboard">Leaderboard</string>
+    <string name="username">Username</string>
 </resources>

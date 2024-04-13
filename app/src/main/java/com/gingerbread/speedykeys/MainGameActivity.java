@@ -452,6 +452,8 @@ public class MainGameActivity extends AppCompatActivity {
                     game_over_screen.setVisibility(View.VISIBLE);
                     score_gameOver.setText(getString(R.string.game_over));
                     userLoginManager.saveHighscore(score);
+                    in_game_music.pause();
+                    in_game_music.setVolume(0, 0);
                     if (!userLoginManager.getUserId().equals("")) {
                         if (score >= 500) {
                             String[] field = new String[2];
@@ -528,6 +530,11 @@ public class MainGameActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        in_game_music.stop();
+        super.onBackPressed();
+    }
 
     private String readRandomWord(String file_name, int lineNumber) throws IOException {
         try (InputStream inputStream = getAssets().open(file_name);
