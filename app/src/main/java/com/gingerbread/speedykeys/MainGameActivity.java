@@ -32,6 +32,7 @@ public class MainGameActivity extends AppCompatActivity {
     int speed;
     int score = 0;
     int health = 10;
+    int health_text;
     int[] range;
     String words_file;
     String range_file;
@@ -440,6 +441,7 @@ public class MainGameActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+
                 health--;
                 health_textView.setText(getString(R.string.health) + health);
                 wroten_text.setText(" ");
@@ -512,7 +514,7 @@ public class MainGameActivity extends AppCompatActivity {
             String line;
             int currentLine = 0;
 
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null){
                 currentLine++;
                 if (currentLine == range_line) {
                     String[] range = line.split("-");
@@ -536,6 +538,18 @@ public class MainGameActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        in_game_music.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        in_game_music.start();
+    }
+
     private String readRandomWord(String file_name, int lineNumber) throws IOException {
         try (InputStream inputStream = getAssets().open(file_name);
              BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -554,4 +568,3 @@ public class MainGameActivity extends AppCompatActivity {
         return random.nextInt((max - min) + 1) + min;
     }
 }
-

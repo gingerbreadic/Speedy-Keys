@@ -120,6 +120,7 @@
         android:layout_marginBottom="75dp"
         android:textColor="#FFFFFF"
         android:textAllCaps="false"
+        android:textSize="28dp"
         android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

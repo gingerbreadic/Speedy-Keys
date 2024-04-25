@@ -11,17 +11,18 @@
         android:id="@+id/login_button"
         android:layout_width="250dp"
         android:layout_height="40dp"
+        android:background="@drawable/button_bg"
         android:onClick="onClick"
         android:text="Log in"
-        android:textSize="28dp"
-        android:textColor="#FFFFFF"
         android:textAllCaps="false"
-        android:background="@drawable/button_bg"
+        android:textColor="#FFFFFF"
+        android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.700" />
+        app:layout_constraintVertical_bias="0.646" />
 
     <TextView
         android:id="@+id/loginText"
@@ -45,6 +46,7 @@
         android:paddingStart="10dp"
         android:ems="10"
         android:hint="Username"
+        android:textColorHint="@color/black"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +64,7 @@
         android:paddingStart="10dp"
         android:ems="10"
         android:hint="Password"
+        android:textColorHint="@color/black"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,21 +73,21 @@
         app:layout_constraintTop_toBottomOf="@+id/login_username"
         app:layout_constraintVertical_bias="0.250" />
 
+
     <TextView
         android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="Don't have an account?"
-        android:textSize="20dp"
         android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.250"
+        app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button"
-        app:layout_constraintVertical_bias="0.250" />
-
+        app:layout_constraintVertical_bias="0.517" />
 
     <TextView
         android:id="@+id/signUpText"
@@ -92,15 +95,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="Sign up"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toEndOf="@+id/signUp"
         app:layout_constraintTop_toBottomOf="@+id/login_button"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.517" />
 
     <TextView
         android:id="@+id/guestMode"
@@ -108,13 +111,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="Continue without signing up"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/signUpText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/login_password"
+        app:layout_constraintVertical_bias="0.979" />
 
     <ProgressBar
         android:id="@+id/progress"

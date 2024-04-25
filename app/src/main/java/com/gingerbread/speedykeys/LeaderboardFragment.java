@@ -81,6 +81,7 @@ public class LeaderboardFragment extends Fragment {
             for (int i = 0; i < splittedResult.length; i++) {
                 String[] parts = splittedResult[i].split(";");
                 result_usernames[i] = parts[0];
+
                 result_scores[i] = parts[1];
             }
 

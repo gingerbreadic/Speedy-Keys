@@ -38,7 +38,7 @@ public class MainScreen extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.profile_img));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.settings_img));
 
-        bottomNavigation.show(2, true);
+        bottomNavigation.show(1, true);
         currentFragment = new HomeFragment();
         replaceFragment(currentFragment);
 
