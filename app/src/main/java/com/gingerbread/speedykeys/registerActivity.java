@@ -27,7 +27,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-/** @noinspection deprecation*/
 public class registerActivity extends AppCompatActivity {
 
     private TextView usernameEditText, registration_passEditText, registration_confirmpassEditText, registration_emailEditText, verification_registration;
@@ -66,50 +65,51 @@ public class registerActivity extends AppCompatActivity {
             password = String.valueOf(registration_passEditText.getText());
             confirm_password = String.valueOf(registration_confirmpassEditText.getText());
             email = String.valueOf(registration_emailEditText.getText());
+
             if (!username.isEmpty() && !password.isEmpty() && !confirm_password.isEmpty() && !email.isEmpty()) {
-                if (!emailSent) {
-                    generateVerificationCode();
-                    buttonSendEmail(email, "E-mail confirmation", "Code for registration in Typing Challenge \n <h2>" + verification_code + "<h2/>"); // Call the new method to send the email
-                    emailSent = true;
-                }
-                verification_registration.setVisibility(View.VISIBLE);
-                if (verification_registration.getText().toString().equals(verification_code)) {
-                    progressBar.setVisibility(View.VISIBLE);
-                    Handler handler = new Handler();
-                    handler.post(() -> {
-                        String[] field = new String[3];
-                        field[0] = "username";
-                        field[1] = "email";
-                        field[2] = "password";
-                        String[] data = new String[3];
-                        data[0] = username;
-                        data[1] = email;
-                        if (password.equals(confirm_password)) {
-                            data[2] = password;
-                        } else {
-                            Toast.makeText(registerActivity.this, "Your password does not match confirm password field!", Toast.LENGTH_LONG).show();
-                            progressBar.setVisibility(View.INVISIBLE);
-                            return;
-                        }
-                        PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/signup.php", "POST", field, data);
-                        buttonSendEmail(email, "Registration success", "Welcome to Typing Challenge, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                progressBar.setVisibility(View.GONE);
-                                String result = putData.getResult();
-                                if (result.equals("Sign Up Success")) {
-                                    Intent intent = new Intent(registerActivity.this, loginActivity.class);
-                                    startActivity(intent);
-                                    Toast.makeText(registerActivity.this, "Sign Up Success!", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                } else {
-                                    Toast.makeText(registerActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                if (password.equals(confirm_password)) {
+                    if (!emailSent) {
+                        generateVerificationCode();
+                        buttonSendEmail(email, "E-mail confirmation", "Code for registration in Typing Challenge \n <h2>" + verification_code + "<h2/>");
+                        emailSent = true;
+                        verification_registration.setVisibility(View.VISIBLE);
+                    } else {
+                        String enteredCode = verification_registration.getText().toString();
+                        if (enteredCode.equals(verification_code)) {
+                            progressBar.setVisibility(View.VISIBLE);
+                            Handler handler = new Handler();
+                            handler.post(() -> {
+                                String[] field = new String[3];
+                                field[0] = "username";
+                                field[1] = "email";
+                                field[2] = "password";
+                                String[] data = new String[3];
+                                data[0] = username;
+                                data[1] = email;
+                                data[2] = password;
+                                PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/signup.php", "POST", field, data);
+                                buttonSendEmail(email, "Registration success", "Welcome to Typing Challenge, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
+                                if (putData.startPut()) {
+                                    if (putData.onComplete()) {
+                                        progressBar.setVisibility(View.GONE);
+                                        String result = putData.getResult();
+                                        if (result.equals("Sign Up Success")) {
+                                            Intent intent = new Intent(registerActivity.this, loginActivity.class);
+                                            startActivity(intent);
+                                            Toast.makeText(registerActivity.this, "Sign Up Success!", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        } else {
+                                            Toast.makeText(registerActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
                                 }
-                            }
+                            });
+                        } else {
+                            Toast.makeText(registerActivity.this, "This verification code is not correct", Toast.LENGTH_LONG).show();
                         }
-                    });
+                    }
                 } else {
-                    Toast.makeText(registerActivity.this, "This verification code is not working", Toast.LENGTH_LONG).show();
+                    Toast.makeText(registerActivity.this, "Your password does not match confirm password field!", Toast.LENGTH_LONG).show();
                 }
             } else {
                 Toast.makeText(registerActivity.this, "Make sure to fill all fields!", Toast.LENGTH_SHORT).show();
@@ -134,13 +134,9 @@ public class registerActivity extends AppCompatActivity {
                 String sender = "***********";
                 String senderPass = "*************";
 
-                // using host as yandex
                 String host = "smtp.yandex.ru";
 
-                // Getting system properties
                 Properties properties = System.getProperties();
-
-                // creating session object to get properties
                 properties.setProperty("mail.smtp.host", host);
                 properties.setProperty("mail.smtp.port", "465");
                 properties.setProperty("mail.smtp.ssl.enable", "true");
@@ -152,22 +148,12 @@ public class registerActivity extends AppCompatActivity {
                     }
                 });
                 try {
-                    // MimeMessage object.
                     MimeMessage message = new MimeMessage(session);
-
-                    // Set From Field: adding senders email to from field.
                     message.setFrom(new InternetAddress(sender));
-
-                    // Set To Field: adding recipient's email to from field.
                     message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-
-                    // Set Subject: subject of the email
                     message.setSubject(subject);
-
-                    // set body of the email.
                     message.setContent(content, "text/html");
 
-                    // Send email.
                     Transport.send(message);
                     System.out.println("Mail successfully sent");
                 } catch (MessagingException mex) {

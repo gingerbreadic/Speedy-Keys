@@ -13,7 +13,9 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/gray"
+        android:background="@drawable/button_bg"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
         android:text="Play Game"
         android:textSize="30dp" />
 

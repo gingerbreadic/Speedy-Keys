@@ -1,5 +1,6 @@
 package com.gingerbread.speedykeys;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -73,6 +74,7 @@ public class SettingsFragment extends Fragment {
         radioButton.setGravity(Gravity.CENTER_VERTICAL);
 
         radioGroup.addView(radioButton);
+        radioButton.setTextColor(Color.WHITE);
     }
 
     private void setLocale(String langCode) {
