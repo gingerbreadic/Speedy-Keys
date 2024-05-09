@@ -96,7 +96,7 @@ public class MainGameActivity extends AppCompatActivity {
             words_file = "eng_words.txt";
         }
 
-        speed = 7000;
+        speed = 2000;
         screenHeight = getResources().getDisplayMetrics().heightPixels;
         game_over_screen.setVisibility(View.INVISIBLE);
         score_gameOver = findViewById(R.id.score_gameOver);
@@ -334,17 +334,19 @@ public class MainGameActivity extends AppCompatActivity {
             if (!level2){
                 word.setText("Level 2");
                 level2 = true;
+                health++;
                 return;
             }
             space_TextView_en.setText("Level 2");
             space_TextView_hy.setText("Level 2");
-       } else if (score >= 2500 && score <= 5000) {
+        } else if (score >= 2500 && score <= 5000) {
             range = getRangeFromAssets(range_file, 3);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 15;
             if (!level3){
                 word.setText("Level 3");
                 level3 = true;
+                health++;
                 return;
             }
             space_TextView_en.setText("Level 3");
@@ -356,6 +358,7 @@ public class MainGameActivity extends AppCompatActivity {
             if (!level4){
                 word.setText("Level 4");
                 level4 = true;
+                health++;
                 return;
             }
             space_TextView_en.setText("Level 4");
@@ -367,6 +370,7 @@ public class MainGameActivity extends AppCompatActivity {
             if (!level5){
                 word.setText("Level 5");
                 level5 = true;
+                health++;
                 return;
             }
             space_TextView_en.setText("Level 5");
@@ -442,7 +446,7 @@ public class MainGameActivity extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
                 if (word.equals("Level 2")){
-
+                    health++;
                 }
                 else {
                     health--;
