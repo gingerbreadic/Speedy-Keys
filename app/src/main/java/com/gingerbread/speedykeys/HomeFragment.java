@@ -31,13 +31,9 @@ public class HomeFragment extends Fragment{
 
         play_game_button.setText(R.string.play);
 
-        play_game_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), MainGameActivity.class);
-                intent.putExtra("userId", userId);
-                startActivity(intent);
-            }
+        play_game_button.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getContext(), MainGameActivity.class);
+            startActivity(intent);
         });
         return view;
     }

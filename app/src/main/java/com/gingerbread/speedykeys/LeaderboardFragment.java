@@ -6,7 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,45 +20,53 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class LeaderboardFragment extends Fragment {
+    private Timer timer;
+    private ProgressBar progressBar;
+    private RecyclerView recyclerView;
+    private LeaderboardAdapter leaderboardAdapter;
+    private ArrayList<LeaderboardItem> leaderboardList;
     String putDataResult;
     String[] result_usernames;
     String[] result_scores;
     String[] splittedResult;
-    ProgressBar progressBar;
-    private RecyclerView recyclerView;
-    private LeaderboardAdapter leaderboardAdapter;
-    private ArrayList<LeaderboardItem> leaderboardList;
 
+
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_leaderboard, container, false);
+
+        // Initialization
         progressBar = view.findViewById(R.id.leaderboard_progressbar);
-        progressBar.setVisibility(View.VISIBLE);
-        // Initialize RecyclerView and Adapter
         recyclerView = view.findViewById(R.id.recyclerView);
+
         recyclerView.setVisibility(View.INVISIBLE);
         leaderboardList = new ArrayList<>();
         leaderboardAdapter = new LeaderboardAdapter(leaderboardList);
 
-        // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(leaderboardAdapter);
 
-        // Populate leaderboard data (you need to replace this with your data retrieval logic)
-
-        Timer timer = new Timer();
+        // Timer setup
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+                FragmentActivity activity = getActivity();
+                if (activity != null) { // Check if the activity is still valid
+                    activity.runOnUiThread(() -> {
                         populateLeaderboardData();
-                    }
-                });
+                    });
+                } else {
+                    // Log an error or handle appropriately
+                    System.err.println("LeaderboardFragment: Attempted to run on a null activity context.");
+                }
             }
-        }, 500);
-
+        }, 500); // Schedule after a short delay
 
         return view;
     }
@@ -102,6 +113,22 @@ public class LeaderboardFragment extends Fragment {
                     }
                 });
             }
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (timer != null) {
+            timer.cancel(); // Cancel the timer to avoid background tasks after fragment is destroyed
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (timer != null) {
+            timer.cancel(); // Ensure cleanup of background tasks
         }
     }
 }

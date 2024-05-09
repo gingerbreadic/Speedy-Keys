@@ -30,7 +30,7 @@ public class MainGameActivity extends AppCompatActivity {
     int screenHeight;
     int numberLine;
     int speed;
-    int score = 0;
+    int score = 980;
     int health = 10;
     int health_text;
     int[] range;
@@ -441,35 +441,48 @@ public class MainGameActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                if (word.equals("Level 2")){
 
-                health--;
-                health_textView.setText(getString(R.string.health) + health);
-                wroten_text.setText(" ");
-                text.setLength(0);
-                if (health == 0) {
-                    word.clearAnimation();
-                    animation.setAnimationListener(null);
-                    english_layout.setVisibility(View.GONE);
-                    armenian_layout.setVisibility(View.GONE);
-                    game_over_screen.setVisibility(View.VISIBLE);
-                    score_gameOver.setText(getString(R.string.game_over));
-                    userLoginManager.saveHighscore(score);
-                    in_game_music.pause();
-                    in_game_music.setVolume(0, 0);
-                    if (!userLoginManager.getUserId().equals("")) {
-                        if (score >= 500) {
-                            String[] field = new String[2];
-                            field[0] = "id";
-                            field[1] = "score";
-                            String[] data = new String[2];
-                            data[0] = id;
-                            data[1] = String.valueOf(score);
+                }
+                else {
+                    health--;
+                    health_textView.setText(getString(R.string.health) + health);
+                    wroten_text.setText(" ");
+                    text.setLength(0);
+                    if (health == 0) {
+                        word.clearAnimation();
+                        animation.setAnimationListener(null);
+                        english_layout.setVisibility(View.GONE);
+                        armenian_layout.setVisibility(View.GONE);
+                        game_over_screen.setVisibility(View.VISIBLE);
+                        score_gameOver.setText(getString(R.string.game_over));
+                        userLoginManager.saveHighscore(score);
+                        in_game_music.pause();
+                        in_game_music.setVolume(0, 0);
+                        if (!userLoginManager.getUserId().equals("")) {
+                            if (score >= 500) {
+                                String[] field = new String[2];
+                                field[0] = "id";
+                                field[1] = "score";
+                                String[] data = new String[2];
+                                data[0] = id;
+                                data[1] = String.valueOf(score);
 
-                            PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/record.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    Toast.makeText(MainGameActivity.this, "New record saved!", Toast.LENGTH_LONG).show();
+                                PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/record.php", "POST", field, data);
+                                if (putData.startPut()) {
+                                    if (putData.onComplete()) {
+                                        Toast.makeText(MainGameActivity.this, "New record saved!", Toast.LENGTH_LONG).show();
+                                    }
                                 }
+                            } else {
+                                word.clearAnimation();
+                                animation.setAnimationListener(null);
+                                english_layout.setVisibility(View.GONE);
+                                armenian_layout.setVisibility(View.GONE);
+                                global.setVisibility(View.GONE);
+                                game_over_screen.setVisibility(View.VISIBLE);
+                                score_gameOver.setText(R.string.game_over);
+                                Toast.makeText(MainGameActivity.this, "You need to get more than 500 score to try to be in the leaderboard.", Toast.LENGTH_LONG).show();
                             }
                         } else {
                             word.clearAnimation();
@@ -479,17 +492,8 @@ public class MainGameActivity extends AppCompatActivity {
                             global.setVisibility(View.GONE);
                             game_over_screen.setVisibility(View.VISIBLE);
                             score_gameOver.setText(R.string.game_over);
-                            Toast.makeText(MainGameActivity.this, "You need to get more than 500 score to try to be in the leaderboard.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainGameActivity.this, "Log-in to save your record!!", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        word.clearAnimation();
-                        animation.setAnimationListener(null);
-                        english_layout.setVisibility(View.GONE);
-                        armenian_layout.setVisibility(View.GONE);
-                        global.setVisibility(View.GONE);
-                        game_over_screen.setVisibility(View.VISIBLE);
-                        score_gameOver.setText(R.string.game_over);
-                        Toast.makeText(MainGameActivity.this, "Log-in to save your record!!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -70,7 +70,7 @@ public class registerActivity extends AppCompatActivity {
                 if (password.equals(confirm_password)) {
                     if (!emailSent) {
                         generateVerificationCode();
-                        buttonSendEmail(email, "E-mail confirmation", "Code for registration in Typing Challenge \n <h2>" + verification_code + "<h2/>");
+                        buttonSendEmail(email, "E-mail confirmation", "Code for registration in Speedy Keys \n <h2>" + verification_code + "<h2/>");
                         emailSent = true;
                         verification_registration.setVisibility(View.VISIBLE);
                     } else {
@@ -88,7 +88,7 @@ public class registerActivity extends AppCompatActivity {
                                 data[1] = email;
                                 data[2] = password;
                                 PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/signup.php", "POST", field, data);
-                                buttonSendEmail(email, "Registration success", "Welcome to Typing Challenge, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
+                                buttonSendEmail(email, "Registration success", "Welcome to Speedy Keys, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
                                 if (putData.startPut()) {
                                     if (putData.onComplete()) {
                                         progressBar.setVisibility(View.GONE);
