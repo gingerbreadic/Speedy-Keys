@@ -30,7 +30,7 @@ public class MainGameActivity extends AppCompatActivity {
     int screenHeight;
     int numberLine;
     int speed;
-    int score = 980;
+    int score = 0;
     int health = 10;
     int health_text;
     int[] range;
@@ -96,7 +96,7 @@ public class MainGameActivity extends AppCompatActivity {
             words_file = "eng_words.txt";
         }
 
-        speed = 2000;
+        speed = 7000;
         screenHeight = getResources().getDisplayMetrics().heightPixels;
         game_over_screen.setVisibility(View.INVISIBLE);
         score_gameOver = findViewById(R.id.score_gameOver);

@@ -9,14 +9,14 @@
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
         android:background="@drawable/button_bg"
         android:onClick="onClick"
         android:text="Log in"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="28dp"
+        android:textSize="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -28,10 +28,10 @@
         android:id="@+id/loginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="175dp"
         android:text="Log in"
-        android:textSize="38dp"
         android:textColor="@color/black"
+        android:textSize="128dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +39,9 @@
 
     <EditText
         android:id="@+id/login_username"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_margin="15dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="30dp"
         android:background="@drawable/edittext_bg"
         android:paddingStart="10dp"
         android:ems="10"
@@ -49,18 +49,20 @@
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:inputType="text"
+        android:textSize="72dp"
+        android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/loginText"
         app:layout_constraintVertical_bias="0.4" />
 
     <EditText
         android:id="@+id/login_password"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_margin="15dp"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="30dp"
         android:background="@drawable/edittext_bg"
         android:paddingStart="10dp"
         android:ems="10"
@@ -68,10 +70,12 @@
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:inputType="textPassword"
+        android:textSize="72dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/login_username"
         app:layout_constraintVertical_bias="0.250" />
 
@@ -83,7 +87,7 @@
         android:layout_marginTop="48dp"
         android:text="Don't have an account?"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.253"
@@ -98,7 +102,7 @@
         android:layout_marginTop="48dp"
         android:text="Sign up"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="48dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,7 +118,7 @@
         android:layout_marginBottom="50dp"
         android:text="Continue without signing up"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="48dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/signUpText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,5 +135,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_password"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

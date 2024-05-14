@@ -341,7 +341,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/home/baseline_home_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/info/baseline_info_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -351,7 +351,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="game_img" />
+                            <entry key="outputName" value="info_img" />
                             <entry key="sourceFile" value="D:\AndroidStudioProjects\TypingChallenge" />
                           </map>
                         </option>

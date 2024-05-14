@@ -54,7 +54,7 @@ public class MainScreen extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.game_img));
         bottomNavigation.add(new MeowBottomNavigation.Model(LEADERBOARD_ID, R.drawable.leaderboard_img));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.profile_img));
-        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.settings_img));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.info_img));
 
         bottomNavigation.show(1, true); // Set default tab
     }
@@ -74,7 +74,7 @@ public class MainScreen extends AppCompatActivity {
                 case LEADERBOARD_ID:
                     currentFragment = new LeaderboardFragment();
                     temporarilyDisableBottomNavigation(); // Disable navigation for safety
-                    mainLayout.setBackgroundResource(R.drawable.leaderboard_background);
+                    mainLayout.setBackgroundResource(R.drawable.leaderboard_item_bg);
                     break;
                 case 3:
                     currentFragment = new ProfileFragment();

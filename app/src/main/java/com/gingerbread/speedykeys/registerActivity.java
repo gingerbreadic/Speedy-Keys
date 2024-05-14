@@ -67,49 +67,54 @@ public class registerActivity extends AppCompatActivity {
             email = String.valueOf(registration_emailEditText.getText());
 
             if (!username.isEmpty() && !password.isEmpty() && !confirm_password.isEmpty() && !email.isEmpty()) {
-                if (password.equals(confirm_password)) {
-                    if (!emailSent) {
-                        generateVerificationCode();
-                        buttonSendEmail(email, "E-mail confirmation", "Code for registration in Speedy Keys \n <h2>" + verification_code + "<h2/>");
-                        emailSent = true;
-                        verification_registration.setVisibility(View.VISIBLE);
-                    } else {
-                        String enteredCode = verification_registration.getText().toString();
-                        if (enteredCode.equals(verification_code)) {
-                            progressBar.setVisibility(View.VISIBLE);
-                            Handler handler = new Handler();
-                            handler.post(() -> {
-                                String[] field = new String[3];
-                                field[0] = "username";
-                                field[1] = "email";
-                                field[2] = "password";
-                                String[] data = new String[3];
-                                data[0] = username;
-                                data[1] = email;
-                                data[2] = password;
-                                PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/signup.php", "POST", field, data);
-                                buttonSendEmail(email, "Registration success", "Welcome to Speedy Keys, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
-                                if (putData.startPut()) {
-                                    if (putData.onComplete()) {
-                                        progressBar.setVisibility(View.GONE);
-                                        String result = putData.getResult();
-                                        if (result.equals("Sign Up Success")) {
-                                            Intent intent = new Intent(registerActivity.this, loginActivity.class);
-                                            startActivity(intent);
-                                            Toast.makeText(registerActivity.this, "Sign Up Success!", Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        } else {
-                                            Toast.makeText(registerActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                if (password.length() >= 6) {
+                    if (password.equals(confirm_password)) {
+                        if (!emailSent) {
+                            generateVerificationCode();
+                            buttonSendEmail(email, "E-mail confirmation", "Code for registration in Speedy Keys \n <h2>" + verification_code + "<h2/>");
+                            Toast.makeText(this, "Please check your email for verification code!", Toast.LENGTH_LONG).show();
+                            emailSent = true;
+                            verification_registration.setVisibility(View.VISIBLE);
+                        } else {
+                            String enteredCode = verification_registration.getText().toString();
+                            if (enteredCode.equals(verification_code)) {
+                                progressBar.setVisibility(View.VISIBLE);
+                                Handler handler = new Handler();
+                                handler.post(() -> {
+                                    String[] field = new String[3];
+                                    field[0] = "username";
+                                    field[1] = "email";
+                                    field[2] = "password";
+                                    String[] data = new String[3];
+                                    data[0] = username;
+                                    data[1] = email;
+                                    data[2] = password;
+                                    PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/signup.php", "POST", field, data);
+                                    buttonSendEmail(email, "Registration success", "Welcome to Speedy Keys, " + username + "!\nYour registration is now complete. Get ready to test your typing skills and embark on exciting challenges!\nLet the typing games begin!");
+                                    if (putData.startPut()) {
+                                        if (putData.onComplete()) {
+                                            progressBar.setVisibility(View.GONE);
+                                            String result = putData.getResult();
+                                            if (result.equals("Sign Up Success")) {
+                                                Intent intent = new Intent(registerActivity.this, loginActivity.class);
+                                                startActivity(intent);
+                                                Toast.makeText(registerActivity.this, "Sign Up Success!", Toast.LENGTH_SHORT).show();
+                                                finish();
+                                            } else {
+                                                Toast.makeText(registerActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
                                     }
-                                }
-                            });
-                        } else {
-                            Toast.makeText(registerActivity.this, "This verification code is not correct", Toast.LENGTH_LONG).show();
+                                });
+                            } else {
+                                Toast.makeText(registerActivity.this, "This verification code is not correct", Toast.LENGTH_LONG).show();
+                            }
                         }
+                    } else {
+                        Toast.makeText(registerActivity.this, "Your password does not match confirm password field!", Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    Toast.makeText(registerActivity.this, "Your password does not match confirm password field!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(registerActivity.this, "Password must be at least 6 characters long!", Toast.LENGTH_LONG).show();
                 }
             } else {
                 Toast.makeText(registerActivity.this, "Make sure to fill all fields!", Toast.LENGTH_SHORT).show();

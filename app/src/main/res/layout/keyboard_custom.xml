@@ -154,7 +154,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/montserratarmregular"
-                android:background="@color/white"
+                android:background="@drawable/border_background"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
@@ -273,7 +273,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/montserratarmregular"
-                android:background="@color/white"
+                android:background="@drawable/border_background"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="20dp" />

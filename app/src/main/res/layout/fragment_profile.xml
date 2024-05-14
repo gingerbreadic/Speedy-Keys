@@ -8,29 +8,37 @@
 
     <Button
         android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/button_bg"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:textSize="36dp"
         android:layout_marginBottom="100dp"
         android:text="@string/log_out" />
 
     <TextView
         android:id="@+id/profile_name"
         android:layout_width="wrap_content"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:text="Username : "
         android:layout_marginTop="100dp"
-        android:textSize="26sp" />
+        android:textSize="42dp" />
 
     <TextView
         android:id="@+id/profile_score"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Highscore : "
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
-        android:textSize="26sp" />
+        android:textSize="42dp" />
 
 </RelativeLayout>

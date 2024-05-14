@@ -14,15 +14,6 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottomNavigation" />
 
-    <!-- The overlay view that will capture touch events and prevent interaction -->
-    <View
-        android:id="@+id/overlay_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="gone" />
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/bottomNavigation"
@@ -34,7 +25,7 @@
         app:mbn_countBackgroundColor="#ff6f00"
         app:mbn_countTextColor="#FFFFFF"
         app:mbn_defaultIconColor="#90a4ae"
-        app:mbn_selectedIconColor="#3c415e"
+        app:mbn_selectedIconColor="#0026FF"
         app:mbn_shadowColor="#1f212121"
         android:layout_alignParentBottom="true" />
 
