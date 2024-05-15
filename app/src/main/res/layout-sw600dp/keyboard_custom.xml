@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/first_row_en"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="bottom"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/q_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="Q"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/w_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="W"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/e_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="E"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/r_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="R"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/t_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="T"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/y_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="Y"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/u_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="U"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/i_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="I"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/o_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="O"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/p_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="P"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_row_en"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/first_row_en"
+            android:foregroundGravity="bottom"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/justspace_first"
+                android:layout_width="10dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/a_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/s_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="S"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/d_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="D"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/f_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="F"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/g_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="G"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/h_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="H"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/j_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="J"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/k_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="K"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/l_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="L"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/justspace_second"
+                android:layout_width="10dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third_row_en"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/second_row_en"
+            android:foregroundGravity="bottom"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/shift_button"
+                android:layout_width="30dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="\u21e7"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <!--u21e7, u232b-->
+
+            <TextView
+                android:id="@+id/z_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="Z"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/x_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="X"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/c_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/v_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="V"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/b_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="B"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/n_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="N"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/m_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="M"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/backspace_button"
+                android:layout_width="30dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="\u232b"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/forth_row_en"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/third_row_en"
+            android:foregroundGravity="bottom"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/space_button"
+                android:layout_width="20dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserratarmregular"
+                android:background="@drawable/border_background"
+                android:gravity="center"
+                android:text="SPACE"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

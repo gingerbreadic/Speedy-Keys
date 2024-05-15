@@ -37,6 +37,7 @@ public class MainScreen extends AppCompatActivity {
         replaceFragment(currentFragment);
 
         mainLayout = findViewById(R.id.main_layout);
+        mainLayout.setBackgroundResource(R.drawable.game_back);
 
         handler = new Handler(); // Initialize handler only once
 
@@ -69,7 +70,7 @@ public class MainScreen extends AppCompatActivity {
             switch (model.getId()) {
                 case 1:
                     currentFragment = new HomeFragment();
-                    mainLayout.setBackgroundResource(R.drawable.home_background);
+                    mainLayout.setBackgroundResource(R.drawable.game_back);
                     break;
                 case LEADERBOARD_ID:
                     currentFragment = new LeaderboardFragment();
@@ -78,7 +79,7 @@ public class MainScreen extends AppCompatActivity {
                     break;
                 case 3:
                     currentFragment = new ProfileFragment();
-                    mainLayout.setBackgroundResource(R.drawable.account_background);
+                    mainLayout.setBackgroundResource(R.drawable.account_bg_gradient);
                     break;
                 case 4:
                     currentFragment = new SettingsFragment();

@@ -10,4 +10,7 @@
     <string name="leaderboard">Leaderboard</string>
     <string name="username">Username</string>
     <string name="play_game">Play Game</string>
+    <string name="log_in_to_see_your_profile">Log in to see your profile!</string>
+    <string name="log_in">Log in</string>
+    <string name="your_score_is">"Your score is : "</string>
 </resources>

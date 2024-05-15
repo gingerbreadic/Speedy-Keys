@@ -8,6 +8,9 @@
     <string name="score_label">Հաշիվ ։</string>
     <string name="play">Խաղալ</string>
     <string name="leaderboard">Առաջատար աղյուսակ</string>
-    <string name="username">Մականուն</string>
+    <string name="username">Օգտանուն</string>
     <string name="play_game">Խաղալ</string>
+    <string name="log_in_to_see_your_profile">Մուտք գործեք՝ ձեր պրոֆիլը տեսնելու համար!</string>
+    <string name="log_in">Մուտք</string>
+    <string name="your_score_is">"Your score is : "</string>
 </resources>

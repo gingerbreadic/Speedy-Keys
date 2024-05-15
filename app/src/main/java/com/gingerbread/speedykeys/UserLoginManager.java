@@ -37,8 +37,9 @@ public class UserLoginManager {
         return sharedPreferences.getString(KEY_USERNAME, "");
     }
 
-    public String getUsersHighScore() {
-        return sharedPreferences.getString(KEY_USERS_HIGHSCORE, "");
+    public int getUsersHighScore() {
+        String highScoreString = sharedPreferences.getString(KEY_USERS_HIGHSCORE, "0");
+        return Integer.parseInt(highScoreString);
     }
 
     public void saveHighscore(Integer highscore) {

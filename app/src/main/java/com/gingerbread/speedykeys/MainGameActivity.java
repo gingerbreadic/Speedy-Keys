@@ -76,6 +76,8 @@ public class MainGameActivity extends AppCompatActivity {
                 armenian_layout.setVisibility(View.VISIBLE);
                 global.setVisibility(View.VISIBLE);
                 english_layout.setVisibility(View.GONE);
+                health_textView.setText("Կյանքեր ։ 10");
+                score_textView.setText("Հաշիվ ։ 0");
 
                 range_file = "arm_range.txt";
                 words_file = "arm_words.txt";
@@ -101,7 +103,7 @@ public class MainGameActivity extends AppCompatActivity {
         game_over_screen.setVisibility(View.INVISIBLE);
         score_gameOver = findViewById(R.id.score_gameOver);
 
-        fallingAnimation = createFallingAnimation();
+        fallingAnimation = createFallingAnimation(speed);
 
         TextView backspace_TextView_en = findViewById(R.id.backspace_button);
         space_TextView_en = findViewById(R.id.space_button);
@@ -325,6 +327,7 @@ public class MainGameActivity extends AppCompatActivity {
         if (score <= 1000){
             range = getRangeFromAssets(range_file, 1);
             numberLine = generateNumberLine(range[0], range[1]);
+            speed -= 5;
             space_TextView_en.setText("Level 1");
             space_TextView_hy.setText("Level 1");
         } else if (score > 1000 && score <= 2500) {
@@ -333,6 +336,7 @@ public class MainGameActivity extends AppCompatActivity {
             speed -= 10;
             if (!level2){
                 word.setText("Level 2");
+                speed += 200;
                 level2 = true;
                 health++;
                 return;
@@ -345,6 +349,7 @@ public class MainGameActivity extends AppCompatActivity {
             speed -= 15;
             if (!level3){
                 word.setText("Level 3");
+                speed += 250;
                 level3 = true;
                 health++;
                 return;
@@ -384,7 +389,7 @@ public class MainGameActivity extends AppCompatActivity {
     protected void startFallingAnimation() {
         if (!fallingAnimation.hasStarted() || fallingAnimation.hasEnded()) {
             word.clearAnimation();
-            fallingAnimation = createFallingAnimation();
+            fallingAnimation = createFallingAnimation(speed);
             word.startAnimation(fallingAnimation);
         }
     }
@@ -412,7 +417,7 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     //Animation
-    private Animation createFallingAnimation() {
+    private Animation createFallingAnimation(int speed) {
         TranslateAnimation animation = new TranslateAnimation(
                 TranslateAnimation.ABSOLUTE, 0f,
                 TranslateAnimation.ABSOLUTE, 0f,
@@ -459,8 +464,10 @@ public class MainGameActivity extends AppCompatActivity {
                         english_layout.setVisibility(View.GONE);
                         armenian_layout.setVisibility(View.GONE);
                         game_over_screen.setVisibility(View.VISIBLE);
-                        score_gameOver.setText(getString(R.string.game_over));
-                        userLoginManager.saveHighscore(score);
+                        score_gameOver.setText(getString(R.string.your_score_is) + score);
+                        if (score >= userLoginManager.getUsersHighScore()){
+                            userLoginManager.saveHighscore(score);
+                        }
                         in_game_music.pause();
                         in_game_music.setVolume(0, 0);
                         if (!userLoginManager.getUserId().equals("")) {
