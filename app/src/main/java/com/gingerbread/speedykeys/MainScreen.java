@@ -55,7 +55,6 @@ public class MainScreen extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.game_img));
         bottomNavigation.add(new MeowBottomNavigation.Model(LEADERBOARD_ID, R.drawable.leaderboard_img));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.profile_img));
-        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.info_img));
 
         bottomNavigation.show(1, true); // Set default tab
     }
@@ -80,10 +79,6 @@ public class MainScreen extends AppCompatActivity {
                 case 3:
                     currentFragment = new ProfileFragment();
                     mainLayout.setBackgroundResource(R.drawable.account_bg_gradient);
-                    break;
-                case 4:
-                    currentFragment = new SettingsFragment();
-                    mainLayout.setBackgroundResource(R.drawable.settings_background);
                     break;
                 default:
                     return null; // Unknown tab, do nothing

@@ -32,7 +32,6 @@ public class MainGameActivity extends AppCompatActivity {
     int speed;
     int score = 0;
     int health = 10;
-    int health_text;
     int[] range;
     String words_file;
     String range_file;
@@ -43,7 +42,7 @@ public class MainGameActivity extends AppCompatActivity {
     TextView score_gameOver;
     TextView space_TextView_hy, space_TextView_en;
     UserLoginManager userLoginManager;
-    MediaPlayer boom_sound, in_game_music;
+    MediaPlayer boom_sound;
     boolean level2, level3, level4, level5 = false;
 
     @Override
@@ -64,9 +63,6 @@ public class MainGameActivity extends AppCompatActivity {
         health_textView = findViewById(R.id.health_textView);
         score_textView = findViewById(R.id.score_textView);
         boom_sound = MediaPlayer.create(this, R.raw.boom_sound);
-        in_game_music = MediaPlayer.create(this, R.raw.in_game_music);
-        in_game_music.setLooping(true);
-        in_game_music.start();
 
 
         LanguageManager languageManager = new LanguageManager(this);
@@ -85,6 +81,8 @@ public class MainGameActivity extends AppCompatActivity {
                 english_layout.setVisibility(View.VISIBLE);
                 global.setVisibility(View.VISIBLE);
                 armenian_layout.setVisibility(View.GONE);
+                health_textView.setText("Health ։ 10");
+                score_textView.setText("Score ։ 0");
 
                 range_file = "eng_range.txt";
                 words_file = "eng_words.txt";
@@ -93,6 +91,8 @@ public class MainGameActivity extends AppCompatActivity {
             armenian_layout.setVisibility(View.GONE);
             global.setVisibility(View.VISIBLE);
             english_layout.setVisibility(View.VISIBLE);
+            health_textView.setText("Health ։ 10");
+            score_textView.setText("Score ։ 0");
 
             range_file = "eng_range.txt";
             words_file = "eng_words.txt";
@@ -468,8 +468,6 @@ public class MainGameActivity extends AppCompatActivity {
                         if (score >= userLoginManager.getUsersHighScore()){
                             userLoginManager.saveHighscore(score);
                         }
-                        in_game_music.pause();
-                        in_game_music.setVolume(0, 0);
                         if (!userLoginManager.getUserId().equals("")) {
                             if (score >= 500) {
                                 String[] field = new String[2];
@@ -545,24 +543,6 @@ public class MainGameActivity extends AppCompatActivity {
             // Handle the case where parsing to int fails
             throw new IOException("Invalid number format in the file", e);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        in_game_music.stop();
-        super.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        in_game_music.pause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        in_game_music.start();
     }
 
     private String readRandomWord(String file_name, int lineNumber) throws IOException {

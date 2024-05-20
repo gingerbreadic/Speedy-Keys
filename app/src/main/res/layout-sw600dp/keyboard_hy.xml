@@ -27,7 +27,7 @@
                 android:text="է"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/th_button_hy"
@@ -39,7 +39,7 @@
                 android:text="թ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/ph_button_hy"
@@ -51,7 +51,7 @@
                 android:text="փ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/dz_button_hy"
@@ -63,7 +63,7 @@
                 android:text="ձ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/j_button_hy"
@@ -75,7 +75,7 @@
                 android:text="ջ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/ev_button_hy"
@@ -87,7 +87,7 @@
                 android:text="և"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/rh_button_hy"
@@ -99,7 +99,7 @@
                 android:text="ռ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/ch_button_hy"
@@ -111,7 +111,7 @@
                 android:text="չ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/tch_button_hy"
@@ -123,7 +123,7 @@
                 android:text="ճ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/jh_button_hy"
@@ -135,7 +135,7 @@
                 android:text="ժ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/ts_button_hy"
@@ -147,7 +147,7 @@
                 android:text="ծ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -168,7 +168,7 @@
                 android:text="ք"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/vo_button_hy"
@@ -180,7 +180,7 @@
                 android:text="ո"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/e_button_hy"
@@ -192,7 +192,7 @@
                 android:text="ե"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/r_button_hy"
@@ -204,7 +204,7 @@
                 android:text="ր"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/t_button_hy"
@@ -216,7 +216,7 @@
                 android:text="տ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/yh_button_hy"
@@ -228,7 +228,7 @@
                 android:text="ը"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/u_button_hy"
@@ -240,7 +240,7 @@
                 android:text="ւ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/i_button_hy"
@@ -252,7 +252,7 @@
                 android:text="ի"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/o_button_hy"
@@ -264,7 +264,7 @@
                 android:text="օ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/p_button_hy"
@@ -276,7 +276,7 @@
                 android:text="պ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -297,7 +297,7 @@
                 android:text="ա"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/s_button_hy"
@@ -309,7 +309,7 @@
                 android:text="ս"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/d_button_hy"
@@ -321,7 +321,7 @@
                 android:text="դ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/f_button_hy"
@@ -333,7 +333,7 @@
                 android:text="ֆ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/g_button_hy"
@@ -345,7 +345,7 @@
                 android:text="գ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/h_button_hy"
@@ -357,7 +357,7 @@
                 android:text="հ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/y_button_hy"
@@ -369,7 +369,7 @@
                 android:text="յ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/k_button_hy"
@@ -381,7 +381,7 @@
                 android:text="կ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/l_button_hy"
@@ -393,7 +393,7 @@
                 android:text="լ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/kh_button_hy"
@@ -405,7 +405,7 @@
                 android:text="խ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
 
         </LinearLayout>
@@ -428,7 +428,7 @@
                 android:text="\u21e7"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="32dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -441,7 +441,7 @@
                 android:text="զ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/gh_button_hy"
@@ -453,7 +453,7 @@
                 android:text="ղ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/c_button_hy"
@@ -465,7 +465,7 @@
                 android:text="ց"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/v_button_hy"
@@ -477,7 +477,7 @@
                 android:text="վ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/b_button_hy"
@@ -489,7 +489,7 @@
                 android:text="բ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/n_button_hy"
@@ -501,7 +501,7 @@
                 android:text="ն"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/m_button_hy"
@@ -513,7 +513,7 @@
                 android:text="մ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/sh_button_hy"
@@ -525,7 +525,7 @@
                 android:text="շ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
             <TextView
                 android:id="@+id/backspace_button_hy"
@@ -537,7 +537,7 @@
                 android:text="\u232b"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="32dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -560,7 +560,7 @@
                 android:text="Բացատ"
                 android:fontFamily="@font/montserratarmregular"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="32dp" />
 
         </LinearLayout>
 

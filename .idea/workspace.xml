@@ -4,8 +4,8 @@
     <shared>
       <config>
         <device id="_android_virtual_device_id_Samsung_S7_API_34" />
-        <device id="_android_virtual_device_id_Samsung_Tab_API_34" />
         <device id="_android_virtual_device_id_Pixel_8_API_34" />
+        <device id="_android_virtual_device_id_Samsung_Tab_API_34" />
         <device id="_device_class_desktop" />
         <device id="pixel_8" />
       </config>
@@ -31,7 +31,17 @@
           <theme>@style/Theme.TypingChallenge</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_home.xml">
+        <config>
+          <theme>@style/Theme.TypingChallenge</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_leaderboard.xml">
+        <config>
+          <theme>@style/Theme.TypingChallenge</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_profile.xml">
         <config>
           <theme>@style/Theme.TypingChallenge</theme>
         </config>
@@ -92,11 +102,6 @@
           <theme>@style/Theme.TypingChallenge</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml">
-        <config>
-          <theme>@style/Theme.TypingChallenge</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_leaderboard.xml">
         <config>
           <theme>@style/Theme.TypingChallenge</theme>
@@ -123,13 +128,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd8723ad-d715-42b6-bae8-925db6760ca6" name="Changes" comment="Fixing design, doing some capital changes like removing SettingsFragment.java">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/activity_main_game.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_leaderboard.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/item_leaderboard.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/keyboard_custom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/keyboard_hy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/line.xml" afterDir="false" />
+    <list default="true" id="cd8723ad-d715-42b6-bae8-925db6760ca6" name="Changes" comment="again worked on design, fixing design for tablets.">
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/render.experimental.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/fragment_profile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -138,19 +141,24 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/MainGameActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/MainGameActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/MainScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/ProfileFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/UserLoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/UserLoginManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/SettingsFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/loginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/loginActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/registerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gingerbread/speedykeys/registerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/en_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/en_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/hy_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/hy_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/activity_main_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/activity_main_game.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/keyboard_custom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/keyboard_custom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/keyboard_hy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/keyboard_hy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_game.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_leaderboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_leaderboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/line.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/line.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/in_game_music.mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values-hy/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-hy/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
@@ -162,7 +170,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Koryun\.android\avd\Pixel_8_API_34.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Koryun\.android\avd\Samsung_S7_API_34.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -273,7 +281,7 @@
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/AndroidStudioProjects/Horizon&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/AndroidStudioProjects/OrderEase&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Variables&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -693,7 +701,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715710968806</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="again worked on design, fixing design for tablets.">
+      <option name="closed" value="true" />
+      <created>1715802320434</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1715802320434</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -725,7 +741,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added animation method, getting random word method, checking if word matches with what person writes, keyboard working" />
     <MESSAGE value="Added simple game over screen" />
     <MESSAGE value="Added meow navigation bar" />
     <MESSAGE value="working navigation-bar with fragments" />
@@ -750,6 +765,7 @@
     <MESSAGE value="Fixed bug which caused by loading LeaderboardFragment.java" />
     <MESSAGE value="Fixed all bugs in the game. (bug where when you pass the level you lose life)" />
     <MESSAGE value="Fixing design, doing some capital changes like removing SettingsFragment.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing design, doing some capital changes like removing SettingsFragment.java" />
+    <MESSAGE value="again worked on design, fixing design for tablets." />
+    <option name="LAST_COMMIT_MESSAGE" value="again worked on design, fixing design for tablets." />
   </component>
 </project>

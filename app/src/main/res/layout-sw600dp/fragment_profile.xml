@@ -8,22 +8,22 @@
     <RelativeLayout
         android:id="@+id/signed"
         android:layout_width="match_parent"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_height="match_parent">
 
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="100dp"
+            android:textAllCaps="false"
             android:background="@drawable/button_bg"
             android:text="@string/log_out"
             android:textColor="@color/white"
-            android:textSize="36dp" />
+            android:textSize="72dp" />
 
         <TextView
             android:id="@+id/profile_name"
@@ -35,7 +35,7 @@
             android:textAlignment="center"
             android:text="Օգտանուն :"
             android:textColor="@color/black"
-            android:textSize="48dp" />
+            android:textSize="64dp" />
 
         <TextView
             android:id="@+id/profile_score"
@@ -47,12 +47,12 @@
             android:layout_marginTop="200dp"
             android:text="Լավագույն միավորը : "
             android:textColor="@color/black"
-            android:textSize="48dp" />
+            android:textSize="64dp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/not_signed"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -61,15 +61,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/not_logged"
-            android:textAllCaps="false"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/button_bg"
             android:text="@string/log_in"
             android:textColor="@color/white"
-            android:layout_marginVertical="200dp"
-            android:textSize="36dp" />
+            android:textAllCaps="false"
+            android:layout_marginVertical="450dp"
+            android:textSize="72dp" />
 
         <TextView
             android:id="@+id/not_logged"
@@ -82,6 +82,6 @@
             android:layout_marginTop="150dp"
             android:text="@string/log_in_to_see_your_profile"
             android:textColor="@color/black"
-            android:textSize="48dp" />
+            android:textSize="64dp" />
     </RelativeLayout>
 </RelativeLayout>

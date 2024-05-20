@@ -52,11 +52,14 @@ public class ProfileFragment extends Fragment {
         profile_name = view.findViewById(R.id.profile_name);
         UserLoginManager userLoginManager = new UserLoginManager(requireContext());
 
+
+        logoutButton.setText(getString(R.string.log_out));
+
         profile_score.setText(getString(R.string.high_score) + userLoginManager.getUsersHighScore());
         profile_name.setText(getString(R.string.username) + " : " + userLoginManager.getUsername());
 
         if (userLoginManager.getUserId().equals("")){
-            logoutButton.setText("Log-in");
+            logoutButton.setText(getString(R.string.log_in));
         }
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

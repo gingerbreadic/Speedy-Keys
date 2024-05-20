@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class loginActivity extends AppCompatActivity {
-    TextView login_username, login_password, signUpText, guestMode;
+    TextView login_username, login_password, signUpText, guestMode, testMode;
     Button login_button;
     ProgressBar progressBar;
     private UserLoginManager userLoginManager;
@@ -35,6 +35,7 @@ public class loginActivity extends AppCompatActivity {
         signUpText = findViewById(R.id.signUpText);
 
         guestMode = findViewById(R.id.guestMode);
+        testMode = findViewById(R.id.testMode);
 
         progressBar = findViewById(R.id.progress);
 
@@ -103,6 +104,44 @@ public class loginActivity extends AppCompatActivity {
             Intent intent = new Intent(loginActivity.this, MainScreen.class);
             startActivity(intent);
             finish();
+        });
+
+        testMode.setOnClickListener(v -> {
+            progressBar.setVisibility(View.VISIBLE);
+
+            Handler handler = new Handler();
+            handler.post(() -> {
+                String[] field = {"username", "password"};
+                String[] data = {"sictst1@gmail.com", "Samsung2023"};
+
+                PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/login.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        progressBar.setVisibility(View.GONE);
+                        String result = putData.getResult();
+                        String[] parts = result.split(":");
+
+                        if (parts.length >= 2) {
+                            String loginSuccess = parts[0];
+                            userId = parts[1];
+
+                            if (loginSuccess.equals("Login Success")) {
+                                userLoginManager.setLoggedIn(true, userId, "sictst1@gmail.com");
+                                Intent intent = new Intent(loginActivity.this, MainScreen.class);
+                                startActivity(intent);
+                                Toast.makeText(loginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                Toast.makeText(loginActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(loginActivity.this, "Invalid server response format", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(loginActivity.this, "Connection Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         });
     }
 
