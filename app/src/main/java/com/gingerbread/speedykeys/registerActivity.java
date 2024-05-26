@@ -135,9 +135,8 @@ public class registerActivity extends AppCompatActivity {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
-                // email ID of  Sender.
-                String sender = "***********";
-                String senderPass = "*************";
+                String sender = "koryun@gaboyan.am";
+                String senderPass = "v5K$8c0t#zgf";
 
                 String host = "smtp.yandex.ru";
 
@@ -175,7 +174,9 @@ public class registerActivity extends AppCompatActivity {
 
     private void generateVerificationCode() {
         Random random = new Random();
-        int MAX_RANGE = 100000;
-        verification_code = String.valueOf(random.nextInt(MAX_RANGE));
+        int min = 100000;
+        int max = 999999;
+        int range = max - min + 1;
+        verification_code = String.valueOf(random.nextInt(range) + min);
     }
 }

@@ -39,6 +39,16 @@ public class loginActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progress);
 
+        // Add checks to ensure views are not null
+        if (login_username == null) throw new NullPointerException("login_username is null");
+        if (login_password == null) throw new NullPointerException("login_password is null");
+        if (login_button == null) throw new NullPointerException("login_button is null");
+        if (signUpText == null) throw new NullPointerException("signUpText is null");
+        if (guestMode == null) throw new NullPointerException("guestMode is null");
+        if (testMode == null) throw new NullPointerException("testMode is null");
+        if (progressBar == null) throw new NullPointerException("progressBar is null");
+
+
         signUpText.setOnClickListener(v -> {
             Intent intent = new Intent(loginActivity.this, registerActivity.class);
             startActivity(intent);

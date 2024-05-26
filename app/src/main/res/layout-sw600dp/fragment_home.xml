@@ -8,17 +8,19 @@
 
     <Button
         android:id="@+id/play_game_button"
-        android:layout_width="match_parent"
-        android:layout_height="500px"
+        android:layout_width="750px"
+        android:layout_height="750px"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/button_bg"
-        android:text="@string/play_game"
         android:layout_marginHorizontal="25dp"
+        android:background="@drawable/play_button_bg"
+        android:text="@string/play_game"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Player Name"
         android:textColor="@color/black"
-        android:textSize="70dp" />
+        android:textSize="52dp" />
 
     <TextView
         android:id="@+id/scoreTextView"
@@ -20,5 +20,5 @@
         android:layout_height="wrap_content"
         android:text="Score"
         android:textColor="@color/black"
-        android:textSize="70dp" />
+        android:textSize="52dp" />
 </LinearLayout>

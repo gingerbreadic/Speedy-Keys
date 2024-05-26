@@ -12,18 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/include_line"
+            layout="@layout/line" />
+
         <TextView
-            android:id="@+id/wroten_text"
+            android:id="@+id/written_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/wroten_text"
-            android:textSize="30dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="180dp"
+            android:text="@string/written_text"
+            android:textColor="@color/white"
+            android:textSize="26dp"
             android:textStyle="bold"
+            android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/word"
+            app:layout_constraintVertical_bias="0.577"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/breathe_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:text="Breathe..."
+            android:visibility="invisible"
+            android:textColor="@color/white"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/word"
+            app:layout_constraintVertical_bias="0.577"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -33,12 +58,23 @@
             android:textSize="30dp"
             android:text="ֆուտբոլիստ"
             android:textStyle="bold"
-            android:shadowColor="@color/gray"
-            android:shadowRadius="1"
-            android:shadowDx="-5"
-            android:shadowDy="-5"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/level_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ֆուտբոլիստ"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/written_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -46,8 +82,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Health : 10"
+            android:layout_marginLeft="15dp"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.054"
@@ -61,9 +99,11 @@
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
             android:text="Score : 0"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/health_textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.054"
@@ -71,6 +111,27 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/game_over_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            tools:context=".MainGameOver"
+            tools:layout_editor_absoluteY="4dp">
+
+            <TextView
+                android:id="@+id/score_gameOver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your score is : "
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -80,18 +141,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/layout_english"
+        android:translationZ="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-        <include
-            android:id="@+id/include_line_en"
-            layout="@layout/line" />
-
             <include
                 android:id="@+id/include_en"
                 layout="@layout/keyboard_custom"
-                app:layout_constraintTop_toBottomOf="@id/include_line_en" />
+                app:layout_constraintTop_toBottomOf="@id/include_line"
+                tools:ignore="NotSibling" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--layout armenian-->
@@ -99,44 +158,21 @@
         android:id="@+id/layout_armenian"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:translationZ="10dp"
         android:visibility="visible">
-
-            <include
-                android:id="@+id/include_line_hy"
-                layout="@layout/line" />
 
 
             <include
                 android:id="@+id/include_hy"
                 layout="@layout/keyboard_hy"
-                app:layout_constraintTop_toBottomOf="@id/include_line_hy" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/game_over_screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible"
-        tools:context=".MainGameOver">
-
-        <TextView
-            android:id="@+id/score_gameOver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your score is : "
-            android:textColor="@color/red"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/include_line"
+                tools:ignore="NotSibling" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_percent="0.07"
-        />
+        app:layout_constraintGuide_percent="1.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

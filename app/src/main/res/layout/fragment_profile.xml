@@ -35,7 +35,7 @@
             android:textAlignment="center"
             android:text="Օգտանուն :"
             android:textColor="@color/black"
-            android:textSize="48dp" />
+            android:textSize="28dp" />
 
         <TextView
             android:id="@+id/profile_score"
@@ -47,7 +47,7 @@
             android:layout_marginTop="200dp"
             android:text="Լավագույն միավորը : "
             android:textColor="@color/black"
-            android:textSize="48dp" />
+            android:textSize="28dp" />
     </RelativeLayout>
 
     <RelativeLayout

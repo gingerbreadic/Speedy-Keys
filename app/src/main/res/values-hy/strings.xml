@@ -13,5 +13,10 @@
     <string name="log_in_to_see_your_profile">Մուտք գործեք՝ ձեր պրոֆիլը տեսնելու համար!</string>
     <string name="log_in">Մուտք</string>
     <string name="your_score_is">"Ձեր վերջնական հաշիվը : "</string>
-    <string name="wroten_text">Հավաքված տեքստ</string>
+    <string name="written_text">Հավաքված տեքստ</string>
+    <string name="level_1">Մակարդակ 1</string>
+    <string name="level_2">Մակարդակ 2</string>
+    <string name="level_3">Մակարդակ 3</string>
+    <string name="level_4">Մակարդակ 4</string>
+    <string name="level_5">Մակարդակ 5</string>
 </resources>

@@ -23,12 +23,15 @@ import java.util.Random;
 
 
 public class MainGameActivity extends AppCompatActivity {
-    TextView wroten_text;
+    TextView written_text, breathe_text;
     TextView score_textView;
     TextView health_textView;
     TextView word;
+    TextView level_word;
     int screenHeight;
     int numberLine;
+    View line;
+    String savedLanguage;
     int speed;
     int score = 0;
     int health = 10;
@@ -45,6 +48,11 @@ public class MainGameActivity extends AppCompatActivity {
     MediaPlayer boom_sound;
     boolean level2, level3, level4, level5 = false;
 
+    public static int generateNumberLine(int min, int max) {
+        Random random = new Random();
+        return random.nextInt((max - min) + 1) + min;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,15 +66,19 @@ public class MainGameActivity extends AppCompatActivity {
         game_over_screen = findViewById(R.id.game_over_screen);
         armenian_layout = findViewById(R.id.layout_armenian);
         global = findViewById(R.id.global_layout);
-        wroten_text = findViewById(R.id.wroten_text);
+        written_text = findViewById(R.id.written_text);
+        breathe_text = findViewById(R.id.breathe_text);
         word = findViewById(R.id.word);
+        level_word = findViewById(R.id.level_word);
         health_textView = findViewById(R.id.health_textView);
         score_textView = findViewById(R.id.score_textView);
+        line = findViewById(R.id.include_line);
         boom_sound = MediaPlayer.create(this, R.raw.boom_sound);
 
+        level_word.setVisibility(View.INVISIBLE);
 
         LanguageManager languageManager = new LanguageManager(this);
-        String savedLanguage = languageManager.getSelectedLanguage();
+        savedLanguage = languageManager.getSelectedLanguage();
         if (savedLanguage != null) {
             if (savedLanguage.equals("Armenian")) {
                 armenian_layout.setVisibility(View.VISIBLE);
@@ -74,6 +86,7 @@ public class MainGameActivity extends AppCompatActivity {
                 english_layout.setVisibility(View.GONE);
                 health_textView.setText("Կյանքեր ։ 10");
                 score_textView.setText("Հաշիվ ։ 0");
+                written_text.setText("Հավաքված տեքստ");
 
                 range_file = "arm_range.txt";
                 words_file = "arm_words.txt";
@@ -86,6 +99,7 @@ public class MainGameActivity extends AppCompatActivity {
 
                 range_file = "eng_range.txt";
                 words_file = "eng_words.txt";
+                written_text.setText("Written text");
             }
         } else {
             armenian_layout.setVisibility(View.GONE);
@@ -93,12 +107,13 @@ public class MainGameActivity extends AppCompatActivity {
             english_layout.setVisibility(View.VISIBLE);
             health_textView.setText("Health ։ 10");
             score_textView.setText("Score ։ 0");
+            written_text.setText("Written text");
 
             range_file = "eng_range.txt";
             words_file = "eng_words.txt";
         }
 
-        speed = 7000;
+        speed = 9000;
         screenHeight = getResources().getDisplayMetrics().heightPixels;
         game_over_screen.setVisibility(View.INVISIBLE);
         score_gameOver = findViewById(R.id.score_gameOver);
@@ -219,11 +234,11 @@ public class MainGameActivity extends AppCompatActivity {
                 TextView clickedTextView = (TextView) v;
                 String buttonText = clickedTextView.getText().toString().toLowerCase();
                 text.append(buttonText);
-                wroten_text.setText(text.toString());
+                written_text.setText(text.toString());
                 if (checkLastStrings()) {
                     boom_sound.start();
                     text.setLength(0);
-                    wroten_text.setText(" ");
+                    written_text.setText(" ");
                     startFallingAnimation();
                     score_textView.setText(getString(R.string.score_label) + " " + score);
                 }
@@ -233,7 +248,7 @@ public class MainGameActivity extends AppCompatActivity {
         backspace_TextView_en.setOnClickListener(v -> {
             if (text.length() > 0) {
                 text.deleteCharAt(text.length() - 1);
-                wroten_text.setText(text.toString());
+                written_text.setText(text.toString());
             }
         });
 
@@ -241,7 +256,7 @@ public class MainGameActivity extends AppCompatActivity {
         backspace_TextView_hy.setOnClickListener(v -> {
             if (text.length() > 0) {
                 text.deleteCharAt(text.length() - 1);
-                wroten_text.setText(text.toString());
+                written_text.setText(text.toString());
             }
         });
 
@@ -324,62 +339,86 @@ public class MainGameActivity extends AppCompatActivity {
     }
 
     protected void getRandomWord(String range_file) throws IOException {
-        if (score <= 1000){
+        if (score <= 1000) {
             range = getRangeFromAssets(range_file, 1);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 5;
-            space_TextView_en.setText("Level 1");
-            space_TextView_hy.setText("Level 1");
+            space_TextView_en.setText(R.string.level_1);
+            space_TextView_hy.setText(R.string.level_1);
         } else if (score > 1000 && score <= 2500) {
             range = getRangeFromAssets(range_file, 2);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 10;
-            if (!level2){
-                word.setText("Level 2");
+            if (!level2) {
+                word.setText("");
                 speed += 200;
+                level_word.setVisibility(View.VISIBLE);
+                level_word.setText(R.string.level_2);
                 level2 = true;
+                armenian_layout.setVisibility(View.INVISIBLE);
+                line.setVisibility(View.INVISIBLE);
+                english_layout.setVisibility(View.INVISIBLE);
+                breathe_text.setVisibility(View.VISIBLE);
                 health++;
                 return;
             }
-            space_TextView_en.setText("Level 2");
-            space_TextView_hy.setText("Level 2");
+            space_TextView_en.setText(R.string.level_2);
+            space_TextView_hy.setText(R.string.level_2);
         } else if (score >= 2500 && score <= 5000) {
             range = getRangeFromAssets(range_file, 3);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 15;
-            if (!level3){
-                word.setText("Level 3");
+            if (!level3) {
+                word.setText("");
                 speed += 250;
+                level_word.setVisibility(View.VISIBLE);
+                level_word.setText(R.string.level_3);
+                armenian_layout.setVisibility(View.INVISIBLE);
+                line.setVisibility(View.INVISIBLE);
+                english_layout.setVisibility(View.INVISIBLE);
                 level3 = true;
+                breathe_text.setVisibility(View.VISIBLE);
                 health++;
                 return;
             }
-            space_TextView_en.setText("Level 3");
-            space_TextView_hy.setText("Level 3");
+            space_TextView_en.setText(R.string.level_3);
+            space_TextView_hy.setText(R.string.level_3);
         } else if (score >= 5000 && score <= 6500) {
             range = getRangeFromAssets(range_file, 4);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 20;
-            if (!level4){
-                word.setText("Level 4");
+            if (!level4) {
+                word.setText("");
+                level_word.setVisibility(View.VISIBLE);
+                level_word.setText(R.string.level_4);
+                armenian_layout.setVisibility(View.INVISIBLE);
+                line.setVisibility(View.INVISIBLE);
+                english_layout.setVisibility(View.INVISIBLE);
                 level4 = true;
+                breathe_text.setVisibility(View.VISIBLE);
                 health++;
                 return;
             }
-            space_TextView_en.setText("Level 4");
-            space_TextView_hy.setText("Level 4");
+            space_TextView_en.setText(R.string.level_4);
+            space_TextView_hy.setText(R.string.level_4);
         } else {
             range = getRangeFromAssets(range_file, 5);
             numberLine = generateNumberLine(range[0], range[1]);
             speed -= 25;
-            if (!level5){
-                word.setText("Level 5");
+            if (!level5) {
+                word.setText("");
+                level_word.setVisibility(View.VISIBLE);
+                level_word.setText(R.string.level_5);
+                armenian_layout.setVisibility(View.INVISIBLE);
+                line.setVisibility(View.INVISIBLE);
+                english_layout.setVisibility(View.INVISIBLE);
                 level5 = true;
+                breathe_text.setVisibility(View.VISIBLE);
                 health++;
                 return;
             }
-            space_TextView_en.setText("Level 5");
-            space_TextView_hy.setText("Level 5");
+            space_TextView_en.setText(R.string.level_5);
+            space_TextView_hy.setText(R.string.level_5);
         }
 
         word.setText(readRandomWord(words_file, numberLine));
@@ -450,48 +489,50 @@ public class MainGameActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                if (word.equals("Level 2")){
-                    health++;
-                }
-                else {
-                    health--;
-                    health_textView.setText(getString(R.string.health) + health);
-                    wroten_text.setText(" ");
-                    text.setLength(0);
-                    if (health == 0) {
-                        word.clearAnimation();
-                        animation.setAnimationListener(null);
-                        english_layout.setVisibility(View.GONE);
-                        armenian_layout.setVisibility(View.GONE);
-                        game_over_screen.setVisibility(View.VISIBLE);
-                        score_gameOver.setText(getString(R.string.your_score_is) + score);
-                        if (score >= userLoginManager.getUsersHighScore()){
-                            userLoginManager.saveHighscore(score);
+                if (level_word.getVisibility() == View.VISIBLE){
+                    if (savedLanguage != null){
+                        if (savedLanguage.equals("Armenian")){
+                            armenian_layout.setVisibility(View.VISIBLE);
                         }
-                        if (!userLoginManager.getUserId().equals("")) {
-                            if (score >= 500) {
-                                String[] field = new String[2];
-                                field[0] = "id";
-                                field[1] = "score";
-                                String[] data = new String[2];
-                                data[0] = id;
-                                data[1] = String.valueOf(score);
+                        else {
+                            english_layout.setVisibility(View.VISIBLE);
+                        }
+                    }else {
+                        english_layout.setVisibility(View.VISIBLE);
+                    }
+                    level_word.setVisibility(View.INVISIBLE);
+                    line.setVisibility(View.VISIBLE);
+                    breathe_text.setVisibility(View.INVISIBLE);
+                }
+                health--;
+                health_textView.setText(getString(R.string.health) + health);
+                written_text.setText(" ");
+                text.setLength(0);
+                if (health == 0) {
+                    word.clearAnimation();
+                    animation.setAnimationListener(null);
+                    english_layout.setVisibility(View.GONE);
+                    armenian_layout.setVisibility(View.GONE);
+                    global.setVisibility(View.GONE);
+                    game_over_screen.setVisibility(View.VISIBLE);
+                    score_gameOver.setText(getString(R.string.your_score_is) + score);
+                    if (score >= userLoginManager.getUsersHighScore()) {
+                        userLoginManager.saveHighscore(score);
+                    }
+                    if (!userLoginManager.getUserId().equals("")) {
+                        if (score >= 500) {
+                            String[] field = new String[2];
+                            field[0] = "id";
+                            field[1] = "score";
+                            String[] data = new String[2];
+                            data[0] = id;
+                            data[1] = String.valueOf(score);
 
-                                PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/record.php", "POST", field, data);
-                                if (putData.startPut()) {
-                                    if (putData.onComplete()) {
-                                        Toast.makeText(MainGameActivity.this, "New record saved!", Toast.LENGTH_LONG).show();
-                                    }
+                            PutData putData = new PutData("https://koryun.gaboyan.am/app1/login/record.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    Toast.makeText(MainGameActivity.this, "New record saved!", Toast.LENGTH_LONG).show();
                                 }
-                            } else {
-                                word.clearAnimation();
-                                animation.setAnimationListener(null);
-                                english_layout.setVisibility(View.GONE);
-                                armenian_layout.setVisibility(View.GONE);
-                                global.setVisibility(View.GONE);
-                                game_over_screen.setVisibility(View.VISIBLE);
-                                score_gameOver.setText(R.string.game_over);
-                                Toast.makeText(MainGameActivity.this, "You need to get more than 500 score to try to be in the leaderboard.", Toast.LENGTH_LONG).show();
                             }
                         } else {
                             word.clearAnimation();
@@ -501,8 +542,17 @@ public class MainGameActivity extends AppCompatActivity {
                             global.setVisibility(View.GONE);
                             game_over_screen.setVisibility(View.VISIBLE);
                             score_gameOver.setText(R.string.game_over);
-                            Toast.makeText(MainGameActivity.this, "Log-in to save your record!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainGameActivity.this, "You need to get more than 500 score to try to be in the leaderboard.", Toast.LENGTH_LONG).show();
                         }
+                    } else {
+                        word.clearAnimation();
+                        animation.setAnimationListener(null);
+                        english_layout.setVisibility(View.GONE);
+                        armenian_layout.setVisibility(View.GONE);
+                        global.setVisibility(View.GONE);
+                        game_over_screen.setVisibility(View.VISIBLE);
+                        score_gameOver.setText(R.string.game_over);
+                        Toast.makeText(MainGameActivity.this, "Log-in to save your record!!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -527,7 +577,7 @@ public class MainGameActivity extends AppCompatActivity {
             String line;
             int currentLine = 0;
 
-            while ((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 currentLine++;
                 if (currentLine == range_line) {
                     String[] range = line.split("-");
@@ -556,10 +606,5 @@ public class MainGameActivity extends AppCompatActivity {
         } catch (IOException e) {
             throw new IOException("Error reading from assets: " + file_name, e);
         }
-    }
-
-    public static int generateNumberLine(int min, int max) {
-        Random random = new Random();
-        return random.nextInt((max - min) + 1) + min;
     }
 }
