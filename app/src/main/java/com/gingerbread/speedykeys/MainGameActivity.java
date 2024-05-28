@@ -541,7 +541,7 @@ public class MainGameActivity extends AppCompatActivity {
                             armenian_layout.setVisibility(View.GONE);
                             global.setVisibility(View.GONE);
                             game_over_screen.setVisibility(View.VISIBLE);
-                            score_gameOver.setText(R.string.game_over);
+                            score_gameOver.setText(R.string.your_score_is + " " + score);
                             Toast.makeText(MainGameActivity.this, "You need to get more than 500 score to try to be in the leaderboard.", Toast.LENGTH_LONG).show();
                         }
                     } else {
@@ -551,7 +551,7 @@ public class MainGameActivity extends AppCompatActivity {
                         armenian_layout.setVisibility(View.GONE);
                         global.setVisibility(View.GONE);
                         game_over_screen.setVisibility(View.VISIBLE);
-                        score_gameOver.setText(R.string.game_over);
+                        score_gameOver.setText(R.string.your_score_is + " " + score);
                         Toast.makeText(MainGameActivity.this, "Log-in to save your record!!", Toast.LENGTH_SHORT).show();
                     }
                 }
